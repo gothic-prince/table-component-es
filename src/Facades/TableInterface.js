@@ -16,12 +16,7 @@ export default class TableInterface {
   getEntities(entities) {}
   getTableName() {}
   /**
-   * @param entity
-   * @return {ColumnBodyEntityInterface[]}
+   * @return {ColumnManagerInterface}
    */
-  getBodyColumns(entity) {}
-  /**
-   * @return {ColumnHeadEntityInterface[]}
-   */
-  getHeadColumns() {}
+  getColumnManager () {}
 }
