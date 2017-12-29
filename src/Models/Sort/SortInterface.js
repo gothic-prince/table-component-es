@@ -1,4 +1,4 @@
 export default class SortInterface {
-  getEntities (entities, columns) {}
+  getEntities (entities) {}
   by(field) {}
 }
