@@ -1,0 +1,13 @@
+@startuml
+interface ColumnManagerInterface <T> {
+  createBodyColumns(entity: T): ColumnBodyEntityInterface[]
+  getHeadColumns(): ColumnHeadEntityInterface[]
+}
+interface ColumnHeadEntityInterface
+interface ColumnBodyEntityInterface
+ColumnManagerInterface "1 .. *" *-- ColumnHeadEntityInterface
+ColumnManagerInterface ..> ColumnBodyEntityInterface
+note left on link
+    It create array of ColumnBodyEntityInterface
+end note
+@enduml
