@@ -24,6 +24,9 @@ export default class Sort extends SortInterface {
     this._handle = handle
   }
 
+  /**
+   * @protected
+   */
   handleChange () {
     if (this._handle !== null) {
       this._handle()
@@ -32,6 +35,7 @@ export default class Sort extends SortInterface {
   }
 
   /**
+   * @protected
    * @return {ColumnManagerInterface}
    */
   getColumnManager () {
