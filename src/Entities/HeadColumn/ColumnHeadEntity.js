@@ -75,4 +75,7 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
   needSort(){
     return this.needSord
   }
+  setNeedSort(value){
+    this.needSord = value
+  }
 }
