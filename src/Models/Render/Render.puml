@@ -38,7 +38,7 @@ interface RenderInterface {
     {abstract} reRenderView()
 }
 
-interface TableInterface <T> {
+interface TableFacadeInterface <T> {
   check(entity: T, entity2: T): boolean
   getSorter (): SortInterface
   getChooser (): ChosenInterface
@@ -48,19 +48,19 @@ interface TableInterface <T> {
   getTableName(): string
 }
 
-ChosenInterface o--> TableInterface
+ChosenInterface o--> TableFacadeInterface
 
-ResetInterface o--> TableInterface
+ResetInterface o--> TableFacadeInterface
 
-TableInterface <--o DensityInterface
+TableFacadeInterface <--o DensityInterface
 
-TableInterface <--o PaginationInterface
+TableFacadeInterface <--o PaginationInterface
 
-TableInterface <--o SortInterface
+TableFacadeInterface <--o SortInterface
 
-RenderInterface ..|> TableInterface
+RenderInterface ..|> TableFacadeInterface
 note left on link
   table.reRenderView()
 end note
-TableInterface <- CLIENT
+TableFacadeInterface <- CLIENT
 @enduml
