@@ -1,0 +1,32 @@
+@startuml
+
+interface RenderInterface {
+  {abstract} reRenderView()
+}
+interface ChosenInterface <T> {
+  {abstract} add (entity: T)
+  {abstract} set (entities: T[])
+  {abstract} get(): T[]
+  {abstract} isChosen(entity: T)
+}
+class Chosen {
+    table: RenderInterface
+    entities
+    handleChange()
+}
+ChosenInterface <|.. Chosen
+
+RenderInterface <-o  Chosen
+note left on link
+handleChange(entity) {
+  // ... code ...
+  table.reRenderView()
+}
+end note
+
+Chosen <-  CLIENT
+note left on link
+chosen.set(entities)
+end note
+Chosen o-- "0 .. *" Entity
+@enduml

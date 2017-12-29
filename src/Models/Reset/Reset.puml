@@ -1,0 +1,22 @@
+@startuml
+
+interface RenderInterface {
+  {abstract} reRenderView()
+}
+interface ResetInterface {
+  {abstract} reload()
+}
+class Reset {
+  table: RenderInterface
+  reload()
+}
+ResetInterface <|.. Reset
+RenderInterface <-o  Reset
+note left on link
+    table.reRenderView()
+end note
+Reset <-- CLIENT
+note left on link
+  reset.reload()
+end note
+@enduml

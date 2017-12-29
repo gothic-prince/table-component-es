@@ -1,0 +1,66 @@
+@startuml
+
+interface PaginationInterface <T> {
+  {abstract} first(entities: T[])
+  {abstract} prev(entities: T[])
+  {abstract} next(entities: T[])
+  {abstract} latest(entities: T[]): T[]
+  {abstract} hasPrev(entities: T[]): Boolean
+  {abstract} hasNext(entities: T[]): Boolean
+  {abstract} setCurrentPage(pageNumber: Number)
+  {abstract} getCurrentPage(): Number
+  {abstract} getLatestPage(entities: T[]): Number
+  {abstract} getLimitRows (): Number
+  {abstract} setLimitRows (max): Number
+  {abstract} getArrayLimitRows (): Number[]
+  {abstract} getEntities(entities: T[]): Array
+}
+interface DensityInterface {
+  {abstract} setDensity(density: number)
+  {abstract} getDensity()
+}
+interface ResetInterface {
+  {abstract} reload()
+}
+interface ChosenInterface <T> {
+  {abstract} add (entity: T)
+  {abstract} set (entities: T[])
+  {abstract} get(): T[]
+  {abstract} isChosen(entity: T)
+}
+
+interface SortInterface <T> {
+    getEntities (entities: T[], columns: ColumnHeadEntityInterface[]): T[]
+    by(field: string)
+}
+
+interface RenderInterface {
+    {abstract} reRenderView()
+}
+
+interface TableInterface <T> {
+  check(entity: T, entity2: T): boolean
+  getSorter (): SortInterface
+  getChooser (): ChosenInterface
+  getEntities(entities: T[]): T[]
+  getBodyColumns(entity: T): ColumnBodyEntityInterface[]
+  getHeadColumns(): ColumnHeadEntityInterface[]
+  getTableName(): string
+}
+
+ChosenInterface o--> TableInterface
+
+ResetInterface o--> TableInterface
+
+TableInterface <--o DensityInterface
+
+TableInterface <--o PaginationInterface
+
+TableInterface <--o SortInterface
+
+RenderInterface ..|> TableInterface
+note left on link
+  table.reRenderView()
+end note
+TableInterface <- CLIENT
+@enduml
