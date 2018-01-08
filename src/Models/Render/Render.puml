@@ -13,7 +13,7 @@ interface PaginationInterface <T> {
   {abstract} getLimitRows (): Number
   {abstract} setLimitRows (max): Number
   {abstract} getArrayLimitRows (): Number[]
-  {abstract} getEntities(entities: T[]): Array
+  {abstract} getCutEntities(entities: T[]): Array
 }
 interface DensityInterface {
   {abstract} setDensity(density: number)
@@ -30,7 +30,7 @@ interface ChosenInterface <T> {
 }
 
 interface SortInterface <T> {
-    getEntities (entities: T[], columns: ColumnHeadEntityInterface[]): T[]
+    getSortedEntities (entities: T[], columns: ColumnHeadEntityInterface[]): T[]
     by(field: string)
 }
 
