@@ -4,7 +4,7 @@
 
 | Name | Params | Return | Description |
 | --- | --- | --- | --- |
-| getEntities | T[]  | T[] | It returns sorted entities |
+| getSortedEntities | T[]  | T[] | It returns sorted entities |
 | by | string | void | You need input string like [ColumnHeadEntityInterface::getFieldName()](../../Entities/HeadColumn/ColumnHeadEntityInterface.js) |
 
 ### ULM:

@@ -50,7 +50,7 @@ export default class Sort extends SortInterface {
       return column.isActive() === true
     }) || null
   }
-  getEntities (entities) {
+  getSortedEntities (entities) {
     const header = this.getActiveHead() || null
 
     if (header === null || header.needSort() === false) {

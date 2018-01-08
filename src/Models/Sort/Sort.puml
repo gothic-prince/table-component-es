@@ -8,7 +8,7 @@ interface ColumnManagerInterface {
   {abstract} getHeadColumns(): ColumnHeadEntityInterface[]
 }
 interface SortInterface <T> {
-  {abstract} getEntities (entities: T[]): T[]
+  {abstract} getSortedEntities (entities: T[]): T[]
   {abstract} by(field)
 }
 class Sort {
