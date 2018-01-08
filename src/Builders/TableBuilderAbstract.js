@@ -1,11 +1,7 @@
 import TableBuilderInterface from './TableBuilderInterface'
 import TableFacade from '../Facades/TableFacade'
-import Chosen from '../Models/Chosen/Chosen'
-import Density from '../Models/Density/Density'
-import Pagination from '../Models/Pagination/Pagination'
-import Reset from '../Models/Reset/Reset'
-import Sort from '../Models/Sort/Sort'
 import RenderManager from '../Models/Render/RenderManager'
+import {TABLE_BUILD_DEFAULT} from './constants';
 
 export default class TableBuilderAbstract extends TableBuilderInterface {
   /**
@@ -14,53 +10,59 @@ export default class TableBuilderAbstract extends TableBuilderInterface {
    */
   constructor(onRender, columnManager) {
     super()
-
-    const render = new RenderManager(onRender)
-
     /**
-     * @private
+     * @protected
      */
     this._columnManager = columnManager
     /**
-     * @private
+     * @protected
      */
-    this._sortManager = new Sort(render, columnManager)
+    this._renderManager = new RenderManager(onRender)
     /**
-     * @private
+     * @protected
      */
-    this._chooseManager = new Chosen(render)
-    /**
-     * @private
-     */
-    this._paginationManager = new Pagination(render)
-    /**
-     * @private
-     */
-    this._densityManager = new Density(render)
-    /**
-     * @private
-     */
-    this._resetManager = new Reset(render)
-    /**
-     * @private
-     */
-    this._renderManager = render
-    /**
-     * @private
-     */
-    this._facade = new TableFacade()
+    this._facade = this.createFacade()
+    this.buildSortManager(TABLE_BUILD_DEFAULT)
+    this.buildResetManager(TABLE_BUILD_DEFAULT)
+    this.buildPaginationManager(TABLE_BUILD_DEFAULT)
+    this.buildDensityManager(TABLE_BUILD_DEFAULT)
+    this.buildChooseManager(TABLE_BUILD_DEFAULT)
   }
   /**
    * @return {TableFacadeAbstract}
    */
-  createTableFacade () {
-    const facade = this._facade
-    facade.setChooseManager(this._chooseManager )
-    facade.setRenderManager(this._renderManager)
-    facade.setDensity(this._densityManager)
-    facade.setPagination(this._paginationManager)
-    facade.setColumnManager(this._columnManager)
-    facade.setReset(this._resetManager)
-    facade.setSortManager(this._sortManager)
+  getTableFacade () {
+    return this.getFacade()
+  }
+  /**
+   * @protected
+   * @return {TableFacade}
+   */
+  createFacade () {
+    const facade = new TableFacade()
+    facade.setRenderManager(this.getRenderManager())
+    facade.setColumnManager(this.getColumnManager())
+    return facade
+  }
+  /**
+   * @protected
+   * @return {TableFacade}
+   */
+  getFacade () {
+    return this._facade
+  }
+  /**
+   * @protected
+   * @return {RenderInterface}
+   */
+  getRenderManager () {
+    return this._renderManager
+  }
+  /**
+   * @protected
+   * @return {ColumnManagerInterface}
+   */
+  getColumnManager () {
+    return this._columnManager
   }
 }
