@@ -1,0 +1,23 @@
+@startuml
+
+interface ColumnEntityFactoryInterface {
+  {abstract} addHeader (name, label, hideable, hidden, sortable): ColumnEntityFactoryInterface
+  {abstract} addBody (name, row, html): ColumnEntityFactoryInterface
+  {abstract} getBodies (): ColumnBodyEntityInterface[]
+  {abstract} getHeaders (): ColumnHeadEntityInterface[]
+}
+abstract class ColumnEntityFactoryAbstract {
+  {abstract} createHeadColumn (name, label, hideable, hidden, sortable): ColumnHeadEntityInterface
+  {abstract} createBodyColumn (name, row, html): ColumnBodyEntityInterface
+}
+class ColumnEntityFactory
+
+interface ColumnBodyEntityInterface
+interface ColumnHeadEntityInterface
+
+ColumnEntityFactoryAbstract ..|> ColumnEntityFactoryInterface
+ColumnEntityFactory ..|> ColumnEntityFactoryAbstract
+
+ColumnEntityFactoryInterface ..> ColumnBodyEntityInterface
+ColumnEntityFactoryInterface ..> ColumnHeadEntityInterface
+@enduml
