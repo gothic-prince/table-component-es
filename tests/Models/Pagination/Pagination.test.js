@@ -14,13 +14,13 @@ describe('Pagination', () => {
   }
   describe('Page #1' , () => {
     it('Should return array length 10' , () => {
-      expect(model.getEntities(data).length).toBe(10)
+      expect(model.getCutEntities(data).length).toBe(10)
     })
     it('First item is 1' , () => {
-      expect(model.getEntities(data)[0]).toBe(1)
+      expect(model.getCutEntities(data)[0]).toBe(1)
     })
     it('Last item is 10' , () => {
-      expect(model.getEntities(data)[9]).toBe(10)
+      expect(model.getCutEntities(data)[9]).toBe(10)
     })
     it('has\'nt prev' , () => {
       expect(model.hasPrev(data)).toBe(false)
@@ -40,13 +40,13 @@ describe('Pagination', () => {
   describe('Page #2' , () => {
     it('Should return array length 10' , () => {
       model.next(data)
-      expect(model.getEntities(data).length).toBe(10)
+      expect(model.getCutEntities(data).length).toBe(10)
     })
     it('First item is 11' , () => {
-      expect(model.getEntities(data)[0]).toBe(11)
+      expect(model.getCutEntities(data)[0]).toBe(11)
     })
     it('Last item is 20' , () => {
-      expect(model.getEntities(data)[9]).toBe(20)
+      expect(model.getCutEntities(data)[9]).toBe(20)
     })
     it('has prev' , () => {
       expect(model.hasPrev(data)).toBe(true)
@@ -61,13 +61,13 @@ describe('Pagination', () => {
   describe('Page #3' , () => {
     it('Should return array length 10' , () => {
       model.next(data)
-      expect(model.getEntities(data).length).toBe(10)
+      expect(model.getCutEntities(data).length).toBe(10)
     })
     it('First item is 21' , () => {
-      expect(model.getEntities(data)[0]).toBe(21)
+      expect(model.getCutEntities(data)[0]).toBe(21)
     })
     it('Last item is 30' , () => {
-      expect(model.getEntities(data)[9]).toBe(30)
+      expect(model.getCutEntities(data)[9]).toBe(30)
     })
     it('has prev' , () => {
       expect(model.hasPrev(data)).toBe(true)
@@ -82,13 +82,13 @@ describe('Pagination', () => {
   describe('Page #2 again' , () => {
     it('Should return array length 10' , () => {
       model.prev(data)
-      expect(model.getEntities(data).length).toBe(10)
+      expect(model.getCutEntities(data).length).toBe(10)
     })
     it('First item is 11' , () => {
-      expect(model.getEntities(data)[0]).toBe(11)
+      expect(model.getCutEntities(data)[0]).toBe(11)
     })
     it('Last item is 20' , () => {
-      expect(model.getEntities(data)[9]).toBe(20)
+      expect(model.getCutEntities(data)[9]).toBe(20)
     })
     it('has prev' , () => {
       expect(model.hasPrev(data)).toBe(true)
@@ -103,13 +103,13 @@ describe('Pagination', () => {
   describe('Page #1 again' , () => {
     it('Should return array length 10' , () => {
       model.prev(data)
-      expect(model.getEntities(data).length).toBe(10)
+      expect(model.getCutEntities(data).length).toBe(10)
     })
     it('First item is 1' , () => {
-      expect(model.getEntities(data)[0]).toBe(1)
+      expect(model.getCutEntities(data)[0]).toBe(1)
     })
     it('Last item is 10' , () => {
-      expect(model.getEntities(data)[9]).toBe(10)
+      expect(model.getCutEntities(data)[9]).toBe(10)
     })
     it('has\'nt prev' , () => {
       expect(model.hasPrev(data)).toBe(false)
@@ -124,13 +124,13 @@ describe('Pagination', () => {
   describe('Page #1 again, because page can not be less 1' , () => {
     it('Should return array length 10' , () => {
       model.prev(data)
-      expect(model.getEntities(data).length).toBe(10)
+      expect(model.getCutEntities(data).length).toBe(10)
     })
     it('First item is 1' , () => {
-      expect(model.getEntities(data)[0]).toBe(1)
+      expect(model.getCutEntities(data)[0]).toBe(1)
     })
     it('Last item is 10' , () => {
-      expect(model.getEntities(data)[9]).toBe(10)
+      expect(model.getCutEntities(data)[9]).toBe(10)
     })
     it('has\'nt prev' , () => {
       expect(model.hasPrev(data)).toBe(false)
@@ -145,13 +145,13 @@ describe('Pagination', () => {
   describe('Page #4' , () => {
     it('Should return array length 10' , () => {
       model.setCurrentPage(4)
-      expect(model.getEntities(data).length).toBe(10)
+      expect(model.getCutEntities(data).length).toBe(10)
     })
     it('First item is 31' , () => {
-      expect(model.getEntities(data)[0]).toBe(31)
+      expect(model.getCutEntities(data)[0]).toBe(31)
     })
     it('Last item is 40' , () => {
-      expect(model.getEntities(data)[9]).toBe(40)
+      expect(model.getCutEntities(data)[9]).toBe(40)
     })
     it('has prev' , () => {
       expect(model.hasPrev(data)).toBe(true)
@@ -166,10 +166,10 @@ describe('Pagination', () => {
   describe('Page #5' , () => {
     it('Should return array length 1' , () => {
       model.next(data)
-      expect(model.getEntities(data).length).toBe(1)
+      expect(model.getCutEntities(data).length).toBe(1)
     })
     it('First item is 41' , () => {
-      expect(model.getEntities(data)[0]).toBe(41)
+      expect(model.getCutEntities(data)[0]).toBe(41)
     })
     it('has prev' , () => {
       expect(model.hasPrev(data)).toBe(true)
@@ -184,10 +184,10 @@ describe('Pagination', () => {
   describe('Page #5 again' , () => {
     it('Should return array length 1' , () => {
       model.next(data)
-      expect(model.getEntities(data).length).toBe(1)
+      expect(model.getCutEntities(data).length).toBe(1)
     })
     it('First item is 41' , () => {
-      expect(model.getEntities(data)[0]).toBe(41)
+      expect(model.getCutEntities(data)[0]).toBe(41)
     })
     it('has prev' , () => {
       expect(model.hasPrev(data)).toBe(true)

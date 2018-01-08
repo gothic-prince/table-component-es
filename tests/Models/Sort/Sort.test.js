@@ -40,14 +40,14 @@ describe('Sort', () => {
     },
   ]
   it('order: Paul, Alex, Ketty', () => {
-    expect(sort.getEntities(entities)[0].name).toBe('Paul')
-    expect(sort.getEntities(entities)[0].id).toBe(2)
+    expect(sort.getSortedEntities(entities)[0].name).toBe('Paul')
+    expect(sort.getSortedEntities(entities)[0].id).toBe(2)
 
-    expect(sort.getEntities(entities)[1].name).toBe('Alex')
-    expect(sort.getEntities(entities)[1].id).toBe(1)
+    expect(sort.getSortedEntities(entities)[1].name).toBe('Alex')
+    expect(sort.getSortedEntities(entities)[1].id).toBe(1)
 
-    expect(sort.getEntities(entities)[2].name).toBe('Ketty')
-    expect(sort.getEntities(entities)[2].id).toBe(4)
+    expect(sort.getSortedEntities(entities)[2].name).toBe('Ketty')
+    expect(sort.getSortedEntities(entities)[2].id).toBe(4)
   })
 
   it('hadnle and render times', () => {
@@ -58,14 +58,14 @@ describe('Sort', () => {
   it('order: Alex, Paul, Ketty', () => {
     sort.by('id')
 
-    expect(sort.getEntities(entities)[0].name).toBe('Alex')
-    expect(sort.getEntities(entities)[0].id).toBe(1)
+    expect(sort.getSortedEntities(entities)[0].name).toBe('Alex')
+    expect(sort.getSortedEntities(entities)[0].id).toBe(1)
 
-    expect(sort.getEntities(entities)[1].name).toBe('Paul')
-    expect(sort.getEntities(entities)[1].id).toBe(2)
+    expect(sort.getSortedEntities(entities)[1].name).toBe('Paul')
+    expect(sort.getSortedEntities(entities)[1].id).toBe(2)
 
-    expect(sort.getEntities(entities)[2].name).toBe('Ketty')
-    expect(sort.getEntities(entities)[2].id).toBe(4)
+    expect(sort.getSortedEntities(entities)[2].name).toBe('Ketty')
+    expect(sort.getSortedEntities(entities)[2].id).toBe(4)
   })
 
   it('hadnle and render times', () => {
@@ -76,14 +76,14 @@ describe('Sort', () => {
   it('order: Ketty, Paul, Alex', () => {
     sort.by('id')
 
-    expect(sort.getEntities(entities)[0].name).toBe('Ketty')
-    expect(sort.getEntities(entities)[0].id).toBe(4)
+    expect(sort.getSortedEntities(entities)[0].name).toBe('Ketty')
+    expect(sort.getSortedEntities(entities)[0].id).toBe(4)
 
-    expect(sort.getEntities(entities)[1].name).toBe('Paul')
-    expect(sort.getEntities(entities)[1].id).toBe(2)
+    expect(sort.getSortedEntities(entities)[1].name).toBe('Paul')
+    expect(sort.getSortedEntities(entities)[1].id).toBe(2)
 
-    expect(sort.getEntities(entities)[2].name).toBe('Alex')
-    expect(sort.getEntities(entities)[2].id).toBe(1)
+    expect(sort.getSortedEntities(entities)[2].name).toBe('Alex')
+    expect(sort.getSortedEntities(entities)[2].id).toBe(1)
   })
 
   it('hadnle and render times', () => {
@@ -94,14 +94,14 @@ describe('Sort', () => {
   it('order: Alex, Ketty, Paul', () => {
     sort.by('name')
 
-    expect(sort.getEntities(entities)[0].name).toBe('Alex')
-    expect(sort.getEntities(entities)[0].id).toBe(1)
+    expect(sort.getSortedEntities(entities)[0].name).toBe('Alex')
+    expect(sort.getSortedEntities(entities)[0].id).toBe(1)
 
-    expect(sort.getEntities(entities)[1].name).toBe('Ketty')
-    expect(sort.getEntities(entities)[1].id).toBe(4)
+    expect(sort.getSortedEntities(entities)[1].name).toBe('Ketty')
+    expect(sort.getSortedEntities(entities)[1].id).toBe(4)
 
-    expect(sort.getEntities(entities)[2].name).toBe('Paul')
-    expect(sort.getEntities(entities)[2].id).toBe(2)
+    expect(sort.getSortedEntities(entities)[2].name).toBe('Paul')
+    expect(sort.getSortedEntities(entities)[2].id).toBe(2)
   })
 
   it('hadnle and render times', () => {
@@ -111,14 +111,14 @@ describe('Sort', () => {
 
   it('order: Paul, Ketty, Alex', () => {
     sort.by('name')
-    expect(sort.getEntities(entities)[0].name).toBe('Paul')
-    expect(sort.getEntities(entities)[0].id).toBe(2)
+    expect(sort.getSortedEntities(entities)[0].name).toBe('Paul')
+    expect(sort.getSortedEntities(entities)[0].id).toBe(2)
 
-    expect(sort.getEntities(entities)[1].name).toBe('Ketty')
-    expect(sort.getEntities(entities)[1].id).toBe(4)
+    expect(sort.getSortedEntities(entities)[1].name).toBe('Ketty')
+    expect(sort.getSortedEntities(entities)[1].id).toBe(4)
 
-    expect(sort.getEntities(entities)[2].name).toBe('Alex')
-    expect(sort.getEntities(entities)[2].id).toBe(1)
+    expect(sort.getSortedEntities(entities)[2].name).toBe('Alex')
+    expect(sort.getSortedEntities(entities)[2].id).toBe(1)
   })
 
   it('hadnle and render times', () => {
