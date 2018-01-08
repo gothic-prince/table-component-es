@@ -83,7 +83,7 @@ export default class Pagination extends PaginationInterface {
     this._limitRowsArray = numbers
     this.handleChange()
   }
-  getEntities(entities) {
+  getCutEntities(entities) {
     const endIndex = (this.getCurrentPage() * this.getLimitRows())
     const startIndex = endIndex - this.getLimitRows()
     return entities.slice(startIndex, endIndex)

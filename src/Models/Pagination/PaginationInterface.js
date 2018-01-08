@@ -54,5 +54,5 @@ export default class PaginationInterface {
    * @param entities {Array}
    * @return {Array}
    */
-  getEntities(entities) {}
+  getCutEntities(entities) {}
 }

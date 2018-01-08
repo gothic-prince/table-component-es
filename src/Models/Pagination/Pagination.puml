@@ -16,7 +16,7 @@ interface PaginationInterface {
   {abstract} getLimitRows (): Number
   {abstract} setLimitRows (max)
   {abstract} getArrayLimitRows (): Number[]
-  {abstract} getEntities(entities: T[]): Array
+  {abstract} getCutEntities(entities: T[]): Array
 }
 class Pagination {
   table
