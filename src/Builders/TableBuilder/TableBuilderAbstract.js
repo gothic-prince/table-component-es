@@ -1,6 +1,6 @@
 import TableBuilderInterface from './TableBuilderInterface'
-import TableFacade from '../Facades/TableFacade'
-import RenderManager from '../Models/Render/RenderManager'
+import TableFacade from '../../Facades/TableFacade'
+import RenderManager from '../../Models/Render/RenderManager'
 import {TABLE_BUILD_DEFAULT} from './constants';
 
 export default class TableBuilderAbstract extends TableBuilderInterface {

@@ -1,10 +1,10 @@
 import TableBuilderInterface from './TableBuilderInterface'
-import TableFacade from '../Facades/TableFacade'
-import Chosen from '../Models/Chosen/Chosen'
-import Density from '../Models/Density/Density'
-import Pagination from '../Models/Pagination/Pagination'
-import Reset from '../Models/Reset/Reset'
-import Sort from '../Models/Sort/Sort'
+import TableFacade from '../../Facades/TableFacade'
+import Chosen from '../../Models/Chosen/Chosen'
+import Density from '../../Models/Density/Density'
+import Pagination from '../../Models/Pagination/Pagination'
+import Reset from '../../Models/Reset/Reset'
+import Sort from '../../Models/Sort/Sort'
 import TableBuilderAbstract from './TableBuilderAbstract'
 
 export default class TableBuilder extends TableBuilderAbstract {
