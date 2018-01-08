@@ -1,7 +1,7 @@
 import ColumnManagerInterface from './ColumnManagerInterface';
 export default class ColumnManager extends ColumnManagerInterface {
   /**
-   * @param getBody {Function<Object>}
+   * @param getBody {Function}
    * @param headers {ColumnHeadEntityInterface[]}
    */
   constructor(getBody, headers) {
