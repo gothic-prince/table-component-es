@@ -1,0 +1,47 @@
+@startuml
+interface ColumnManagerInterface {
+
+}
+interface RenderInterface {
+  reRenderView()
+}
+interface PaginationInterface {
+  setCurrentPage(page: number)
+}
+interface ChosenInterface {
+  set (entities)
+  add (entity)
+}
+interface SortInterface {
+  by(field: string)
+}
+interface ResetInterface {
+  reload()
+}
+interface DensityInterface {
+  setDensity(density: number)
+}
+abstract class TableFacadeAbstract {
+
+}
+class TableBuilder {
+  getTableFacade(): TableFacadeAbstract
+}
+
+TableBuilder .> TableFacadeAbstract
+
+ColumnManagerInterface <--o TableFacadeAbstract
+RenderInterface <--o TableFacadeAbstract
+note left on link
+table.reRenderView()
+end note
+
+TableFacadeAbstract -> PaginationInterface
+note left on link
+pag.setCurrentPage(34)
+end note
+TableFacadeAbstract ---> DensityInterface
+TableFacadeAbstract ---> ResetInterface
+TableFacadeAbstract ---> SortInterface
+TableFacadeAbstract ---> ChosenInterface
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+interface ColumnManagerInterface
+interface RenderInterface
+interface PaginationInterface
+interface DensityInterface
+interface ResetInterface
+interface SortInterface
+interface ChosenInterface
+
+interface TableFacadeInterface {
+  {abstract} getEntities(entities: T[]): T[]
+  {abstract} getColumnManager (): ColumnManagerInterface
+  {abstract} getRenderManager (): RenderInterface
+}
+abstract class TableFacadeAbstract {
+  {abstract} getPaginationManager(): PaginationInterface
+  {abstract} getDensityManager(): DensityInterface
+  {abstract} getResetManager(): ResetInterface
+  {abstract} getSortManager (): SortInterface
+  {abstract} getChooseManager (): ChosenInterface
+}
+TableFacadeAbstract .|> TableFacadeInterface
+ColumnManagerInterface <--o TableFacadeAbstract
+RenderInterface <--o TableFacadeAbstract
+
+TableFacadeAbstract --> PaginationInterface
+TableFacadeAbstract --> DensityInterface
+TableFacadeAbstract --> ResetInterface
+TableFacadeAbstract --> SortInterface
+TableFacadeAbstract --> ChosenInterface
+
+@enduml
