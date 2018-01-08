@@ -2,12 +2,33 @@ import TableFacadeAbstract from './TableFacadeAbstract';
 export default class TableFacade extends TableFacadeAbstract {
   constructor() {
     super()
+    /**
+     * @private
+     */
     this._sortManager = null
+    /**
+     * @private
+     */
     this._chooseManager = null
+    /**
+     * @private
+     */
     this._columnManager = null
+    /**
+     * @private
+     */
     this._paginationManager = null
+    /**
+     * @private
+     */
     this._densityManager = null
+    /**
+     * @private
+     */
     this._resetManager = null
+    /**
+     * @private
+     */
     this._renderManager = null
   }
   /**

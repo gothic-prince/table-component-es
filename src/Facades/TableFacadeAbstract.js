@@ -1,13 +1,13 @@
-import TableInterface from './TableFacadeInterface';
+import TableFacadeInterface from './TableFacadeInterface';
 
-export default class TableFacadeAbstract extends TableInterface {
+export default class TableFacadeAbstract extends TableFacadeInterface {
   /**
    * @param entities {T[]}
    * @return {T[]}
    */
   getEntities(entities) {
-    return this.getPaginationManager().getEntities(
-      this.getSortManager().getEntities(entities)
+    return this.getPaginationManager().getCutEntities(
+      this.getSortManager().getSortedEntities(entities)
     )
   }
   /**
