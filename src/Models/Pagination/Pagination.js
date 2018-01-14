@@ -2,20 +2,14 @@ import PaginationInterface from './PaginationInterface';
 export default class Pagination extends PaginationInterface {
   /**
    * @param table {RenderInterface}
-   * @param handle {Function}
    */
-  constructor (table, handle = null) {
+  constructor (table) {
     super()
     /**
      * @type {RenderInterface}
      * @private
      */
     this._table = table
-    /**
-     * @type {Function}
-     * @private
-     */
-    this._handle = handle
     /**
      * @type {Number}
      * @private
@@ -33,9 +27,6 @@ export default class Pagination extends PaginationInterface {
     this._limitRowsArray = [10, 25, 50, 100]
   }
   handleChange () {
-    if (this._handle !== null) {
-      this._handle()
-    }
     this._table.reRenderView()
   }
   first (entities) {

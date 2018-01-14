@@ -2,20 +2,14 @@ import ChosenInterface from './ChosenInterface';
 export default class Chosen extends ChosenInterface {
   /**
    * @param table {RenderInterface}
-   * @param handle {Function}
    */
-  constructor(table, handle = null) {
+  constructor(table) {
     super()
     /**
      * @protected
      * @type {RenderInterface}
      */
     this.table = table
-    /**
-     * @protected
-     * @type {Function}
-     */
-    this.handle = handle
     /**
      * @protected
      * @type {Array}
@@ -35,9 +29,6 @@ export default class Chosen extends ChosenInterface {
    * @protected
    */
   handleChange () {
-    if (this.handle !== null) {
-      this.handle(this.entities)
-    }
     this.table.reRenderView()
   }
   add (entity) {

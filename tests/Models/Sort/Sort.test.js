@@ -7,12 +7,8 @@ import {TABLE_SORT_ASC, TABLE_SORT_DESC} from '../../../src/Models/Sort/constant
 describe('Sort', () => {
   const render = new RenderInterface()
   let renderTimes = 0
-  let handleTimes = 0
   render.reRenderView = () => {
     renderTimes++
-  }
-  const handle = () => {
-    handleTimes++
   }
   const getBody = (entity) => {
     return [
@@ -25,7 +21,7 @@ describe('Sort', () => {
     new ColumnHeadEntity('id', '#ID')
   ]
   const columnManager = new ColumnManager(getBody, headColumns)
-  const sort = new Sort(render, columnManager, handle)
+  const sort = new Sort(render, columnManager)
   const entities = [
     {
       name: 'Paul',
@@ -52,9 +48,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(4)
     })
 
-    it('handle and render times', () => {
+    it('should return 0', () => {
       expect(renderTimes).toBe(0)
-      expect(handleTimes).toBe(0)
     })
   })
   describe('Sorting by ID', () => {
@@ -71,9 +66,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('handle and render times', () => {
+    it('should return 1', () => {
       expect(renderTimes).toBe(1)
-      expect(handleTimes).toBe(1)
     })
   })
   describe('Sorting by ID', () => {
@@ -90,9 +84,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(4)
     })
 
-    it('handle and render times', () => {
+    it('should return 2', () => {
       expect(renderTimes).toBe(2)
-      expect(handleTimes).toBe(2)
     })
   })
 
@@ -109,9 +102,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('handle and render times', () => {
+    it('should return 3', () => {
       expect(renderTimes).toBe(3)
-      expect(handleTimes).toBe(3)
     })
 
   })
@@ -129,9 +121,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(2)
     })
 
-    it('hadnle and render times', () => {
+    it('should return 4', () => {
       expect(renderTimes).toBe(4)
-      expect(handleTimes).toBe(4)
     })
   })
 
@@ -149,9 +140,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('hadnle and render times', () => {
+    it('should return 5', () => {
       expect(renderTimes).toBe(5)
-      expect(handleTimes).toBe(5)
     })
   })
   describe('Sorting by ID', () => {
@@ -168,9 +158,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(4)
     })
 
-    it('hadnle and render times', () => {
+    it('should return 6', () => {
       expect(renderTimes).toBe(6)
-      expect(handleTimes).toBe(6)
     })
   })
   describe('Sorting by ID', () => {
@@ -187,9 +176,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('hadnle and render times', () => {
+    it('should return 7', () => {
       expect(renderTimes).toBe(7)
-      expect(handleTimes).toBe(7)
     })
   })
   describe('Sorting by Name', () => {
@@ -206,9 +194,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(2)
     })
 
-    it('hadnle and render times', () => {
+    it('should return 8', () => {
       expect(renderTimes).toBe(8)
-      expect(handleTimes).toBe(8)
     })
   })
   describe('Sorting by Name', () => {
@@ -224,9 +211,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('hadnle and render times', () => {
+    it('should return 9', () => {
       expect(renderTimes).toBe(9)
-      expect(handleTimes).toBe(9)
     })
   })
 })

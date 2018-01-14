@@ -4,27 +4,20 @@ import Reset from '../../../src/Models/Reset/Reset';
 describe('Reset', () => {
   const table = new RenderInterface()
   let renderTimes = 0
-  let handleTimes = 0
   table.reRenderView = () => {
     renderTimes++
   }
-  const handle = () => {
-    handleTimes++
-  }
-  const model = new Reset(table, handle)
+  const model = new Reset(table)
   model.reload()
-  it('should reRenderView 1', () => {
+  it('should return', () => {
     expect(renderTimes).toBe(1)
-    expect(handleTimes).toBe(1)
   })
   model.reload()
-  it('should reRenderView 2', () => {
-    expect(renderTimes).toBe(1)
-    expect(handleTimes).toBe(1)
+  it('should return 2', () => {
+    expect(renderTimes).toBe(2)
   })
   model.reload()
-  it('should reRenderView 3', () => {
+  it('should return 3', () => {
     expect(renderTimes).toBe(3)
-    expect(handleTimes).toBe(3)
   })
 })

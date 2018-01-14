@@ -3,9 +3,8 @@ export default class Sort extends SortInterface {
   /**
    * @param render {RenderInterface}
    * @param columnManager {ColumnManagerInterface}
-   * @param handle {Function}
    */
-  constructor(render, columnManager, handle = null) {
+  constructor(render, columnManager) {
     super()
     /**
      * @type {RenderInterface}
@@ -17,20 +16,12 @@ export default class Sort extends SortInterface {
      * @private
      */
     this._columnManager = columnManager
-    /**
-     * @type {Function}
-     * @private
-     */
-    this._handle = handle
   }
 
   /**
    * @protected
    */
   handleChange () {
-    if (this._handle !== null) {
-      this._handle()
-    }
     this._render.reRenderView()
   }
 
