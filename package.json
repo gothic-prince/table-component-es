@@ -4,7 +4,9 @@
   "main": "index.js",
   "author": "gothic-prince",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "check-types": "^7.3.0"
+  },
   "scripts": {
     "test": "jest"
   },
