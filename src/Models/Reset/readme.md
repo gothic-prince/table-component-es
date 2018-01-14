@@ -1,3 +1,8 @@
+## Example:
+```javascript
+table.getResetManager().reload()
+```
+
 ## [ResetInterface](./ResetInterface.js) and [Reset](./Reset.js)
 
 ### Methods:
@@ -6,6 +11,5 @@
 | --- | --- | --- |
 | reload |  |  |
 
-### ULM:
 
 ![UML](./Reset.png)

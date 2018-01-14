@@ -1,82 +1,37 @@
-### Table building: 
-![TableFacade.png](./src/Builders/TableBuilder/TableBuilder.png)
+### Introduction:
 
-See more about:
-[TableBuilderInterface](./src/Facades/TableFacadeInterface.js),
-[TableBuilderAbstract](./src/Facades/TableFacadeAbstract.js)
-and
-[TableBuilder](./src/Facades/TableFacade.js)
+This package was created to separate Views and Models. 
+
+### Solutions: 
+* You can use one model to create table for any frameworks. It can solve issue to supporting application with a few frameworks (like React and React Native). 
+* Simple testing.
+* Simple extending. You can add or edit behavior. 
+* You can override models so, to it keep settings of table.
+
+### Example:
 
 ```javascript
-const columnManager = new ColumnManager((entity) => {
-  return new ColumnEntityFactory()
-    .addBody('id', entity.getID())
-    .addBody('name', entity.getName())
-    .getBodies()
-}, (
-  new ColumnEntityFactory()
-    .addHeader('id',  '#ID')
-    .addHeader('name', 'Name: ')
-    .getHeaders()
-))
-const builder = new TableBuilder(() => {
-    this.render()
-  }, columnManager)
-const table = builder.getTableFacade()
+table.getSortManager().by('name', TABLE_SORT_ASC)
+table.getDensityManager().setDensity(3)
+table.getPaginationManager().setCurrentPage(34)
+table.getPaginationManager().next(entities)
 
-```
-### Sorting: 
-##### [Read more](./src/Models/Sort/readme.md)
-```javascript
-const tableSort = table.getSortManager()
-tableSort.by('name', TABLE_SORT_DESC)
-tableSort.by('name', TABLE_SORT_ASC)
-const sortedEntities = table.getEntities(entities)
-console.log(sortedEntities)
+// it returns sorted, filtered, paginated entities, 
+table.getEntities(entities)
 ```
 
-### Pagination: 
+### Models:
+[TableBuilder](https://github.com/ui-package/table-component/blob/master/src/Builders/TableBuilder/readme.md)
 
-##### [Read more](./src/Models/Pagination/readme.md)
-```javascript
-const tablePag = table.getPaginationManager()
-tablePag.first(entities)
-tablePag.next(entities)
-tablePag.prev(entities)
-tablePag.latest(entities)
-tablePag.setCurrentPage(2)
-```
+[Sort](https://github.com/ui-package/table-component/blob/master/src/Models/Sort/readme.md)
 
-### Switch density:
+[Pagination](https://github.com/ui-package/table-component/blob/master/src/Models/Pagination/readme.md)
 
-##### [Read more](./src/Models/Density/readme.md)
-```javascript
-const tableDensity = table.getDensityManager()
-tableDensity.setDensity(1)
-tableDensity.setDensity(3)
-tableDensity.setDensity(2)
-```
-### Choosing rows:
+[Density](https://github.com/ui-package/table-component/blob/master/src/Models/Density/readme.md)
 
-##### [Read more](./src/Models/Chosen/readme.md)
-```javascript
-const tableRowChoosing = table.getChooseManager()
-tableRowChoosing.add(entities[1])
-tableRowChoosing.add(entities[4])
-const chosenEntities = tableRowChoosing.get()
-console.log(chosenEntities)
-```
+[Chosen](https://github.com/ui-package/table-component/blob/master/src/Models/Chosen/readme.md)
 
-### Reloadong:
+[Reset](https://github.com/ui-package/table-component/blob/master/src/Models/Reset/readme.md)
 
-##### [Read more](./src/Models/Reset/readme.md)
-```javascript
-table.getResetManager().reload()
-```
+[Render](https://github.com/ui-package/table-component/blob/master/src/Models/Render/readme.md)
 
-### Rerendering: 
-
-##### [Read more](./src/Models/Render/readme.md)
-```javascript
-table.getRenderManager().reRenderView()
-```

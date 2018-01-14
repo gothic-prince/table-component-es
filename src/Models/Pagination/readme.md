@@ -1,3 +1,14 @@
+### Pagination: 
+
+```javascript
+const tablePag = table.getPaginationManager()
+tablePag.first(entities)
+tablePag.next(entities)
+tablePag.prev(entities)
+tablePag.latest(entities)
+tablePag.setCurrentPage(2)
+```
+
 ## [PaginationInterface](./PaginationInterface.js) and [Pagination](./Pagination.js)
 
 ### Methods:
@@ -18,6 +29,5 @@
 | getArrayLimitRows | --- | number[] |
 | getEntities | T[] | T[] |
 
-### ULM:
 
 ![UML](./Pagination.png)

@@ -1,3 +1,8 @@
+## Example: 
+```javascript
+table.getRenderManager().reRenderView()
+```
+
 ## [RenderInterface](./RenderInterface.js)
 
 ### Methods:
@@ -6,6 +11,5 @@
 | --- | --- | --- |
 | reRenderView |  |  |
 
-### ULM:
 
 ![UML](./Render.png)

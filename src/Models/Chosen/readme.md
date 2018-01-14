@@ -1,3 +1,13 @@
+### Example:
+
+```javascript
+const tableRowChoosing = table.getChooseManager()
+tableRowChoosing.add(entities[1])
+tableRowChoosing.add(entities[4])
+const chosenEntities = tableRowChoosing.get()
+console.log(chosenEntities)
+```
+
 ## [ChosenInterface](./ChosenInterface.js) and [Chosen](./Chosen.js)
 
 ### Methods:
@@ -9,6 +19,5 @@
 | get | | T[] | 
 | isChosen | T | Boolean | 
 
-### ULM:
 
 ![Chosen](./Chosen.png)

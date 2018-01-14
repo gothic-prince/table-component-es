@@ -1,3 +1,11 @@
+### Switch density:
+```javascript
+const tableDensity = table.getDensityManager()
+tableDensity.setDensity(1)
+tableDensity.setDensity(3)
+tableDensity.setDensity(2)
+```
+
 ## [DensityInterface](./DensityInterface.js) and [Density](./Density.js)
 
 ### Methods:
@@ -6,7 +14,5 @@
 | --- | --- | --- |
 | setDensity | Number | void |
 | getDensity | --- | Number |
-
-### ULM:
 
 ![UML](./Density.png)
