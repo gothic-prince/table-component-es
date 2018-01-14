@@ -8,14 +8,13 @@ and
 [TableBuilder](./src/Facades/TableFacade.js)
 
 ```javascript
-const factory = new ColumnEntityFactory()
 const columnManager = new ColumnManager((entity) => {
-  return factory
+  return new ColumnEntityFactory()
     .addBody('id', entity.getID())
     .addBody('name', entity.getName())
     .getBodies()
 }, (
-  factory
+  new ColumnEntityFactory()
     .addHeader('id',  '#ID')
     .addHeader('name', 'Name: ')
     .getHeaders()
@@ -30,7 +29,8 @@ const table = builder.getTableFacade()
 ##### [Read more](./src/Models/Sort/readme.md)
 ```javascript
 const tableSort = table.getSortManager()
-tableSort.by('name')
+tableSort.by('name', TABLE_SORT_DESC)
+tableSort.by('name', TABLE_SORT_ASC)
 const sortedEntities = table.getEntities(entities)
 console.log(sortedEntities)
 ```

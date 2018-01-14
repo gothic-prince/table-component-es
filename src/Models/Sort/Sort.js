@@ -78,15 +78,15 @@ export default class Sort extends SortInterface {
       if ((value1 === undefined) || (value2 === undefined)) {
         return 0;
       }
-      if(value1 < value2) return (header.isReverse() ? -1 : 1);
-      if(value1 > value2) return (header.isReverse() ? 1 : -1);
+      if(value1 < value2) return (header.isReverse() ? 1 : -1);
+      if(value1 > value2) return (header.isReverse() ? -1 : 1);
       return 0;
     })
   }
-  by(field) {
+  by(field, reverse = null) {
     this.getColumnManager().getHeadColumns().map((entity) => {
       if (entity.getFieldName() === field) {
-        entity.setReverse(!entity.isReverse())
+        entity.setReverse(reverse === null ? !entity.isReverse() : reverse)
         entity.setActive(true)
       } else {
         entity.setActive(false)
