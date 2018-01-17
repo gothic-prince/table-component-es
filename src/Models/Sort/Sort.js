@@ -1,4 +1,5 @@
 import SortInterface from './SortInterface';
+import {TABLE_SORT_DESC} from './constants';
 export default class Sort extends SortInterface {
   /**
    * @param render {RenderInterface}
@@ -16,6 +17,8 @@ export default class Sort extends SortInterface {
      * @private
      */
     this._columnManager = columnManager
+
+    this._field = ''
   }
 
   /**
@@ -74,11 +77,28 @@ export default class Sort extends SortInterface {
       return 0;
     })
   }
+
+  /**
+   * @protected
+   * @param column {ColumnHeadEntityInterface}
+   * @param forceReverse
+   * @return {Boolean}
+   */
+  isRevers (column, forceReverse) {
+    if (forceReverse !== null) {
+      return forceReverse
+    }
+    if (column.getFieldName() === this._field) {
+      return !column.isReverse()
+    }
+    return TABLE_SORT_DESC
+  }
   by(field, reverse = null) {
     this.getColumnManager().getHeadColumns().map((entity) => {
       if (entity.getFieldName() === field) {
-        entity.setReverse(reverse === null ? !entity.isReverse() : reverse)
+        entity.setReverse(this.isRevers(entity, reverse))
         entity.setActive(true)
+        this._field = field
       } else {
         entity.setActive(false)
       }

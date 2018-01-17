@@ -105,7 +105,6 @@ describe('Sort', () => {
     it('should return 3', () => {
       expect(renderTimes).toBe(3)
     })
-
   })
   describe('Sorting by Name', () => {
     it('should has order: Alex, Ketty, Paul', () => {
@@ -126,6 +125,23 @@ describe('Sort', () => {
     })
   })
 
+  describe('Sorting by Name again', () => {
+    it('should has order: Paul, Ketty, Alex', () => {
+      sort.by('name')
+      expect(sort.getSortedEntities(entities)[0].name).toBe('Paul')
+      expect(sort.getSortedEntities(entities)[0].id).toBe(2)
+
+      expect(sort.getSortedEntities(entities)[1].name).toBe('Ketty')
+      expect(sort.getSortedEntities(entities)[1].id).toBe(4)
+
+      expect(sort.getSortedEntities(entities)[2].name).toBe('Alex')
+      expect(sort.getSortedEntities(entities)[2].id).toBe(1)
+    })
+
+    it('should return 5', () => {
+      expect(renderTimes).toBe(5)
+    })
+  })
   describe('Sorting by ID', () => {
     it('should has order: Ketty, Paul, Alex', () => {
       sort.by('id', TABLE_SORT_DESC)
@@ -140,8 +156,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 5', () => {
-      expect(renderTimes).toBe(5)
+    it('should return 6', () => {
+      expect(renderTimes).toBe(6)
     })
   })
   describe('Sorting by ID', () => {
@@ -158,8 +174,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(4)
     })
 
-    it('should return 6', () => {
-      expect(renderTimes).toBe(6)
+    it('should return 7', () => {
+      expect(renderTimes).toBe(7)
     })
   })
   describe('Sorting by ID', () => {
@@ -176,8 +192,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 7', () => {
-      expect(renderTimes).toBe(7)
+    it('should return 8', () => {
+      expect(renderTimes).toBe(8)
     })
   })
   describe('Sorting by Name', () => {
@@ -194,8 +210,8 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(2)
     })
 
-    it('should return 8', () => {
-      expect(renderTimes).toBe(8)
+    it('should return 9', () => {
+      expect(renderTimes).toBe(9)
     })
   })
   describe('Sorting by Name', () => {
@@ -211,8 +227,44 @@ describe('Sort', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 9', () => {
-      expect(renderTimes).toBe(9)
+    it('should return 10', () => {
+      expect(renderTimes).toBe(10)
+    })
+  })
+
+  describe('Sorting by ID', () => {
+    it('force order againg: Ketty, Paul, Alex', () => {
+      sort.by('id')
+
+      expect(sort.getSortedEntities(entities)[0].name).toBe('Ketty')
+      expect(sort.getSortedEntities(entities)[0].id).toBe(4)
+
+      expect(sort.getSortedEntities(entities)[1].name).toBe('Paul')
+      expect(sort.getSortedEntities(entities)[1].id).toBe(2)
+
+      expect(sort.getSortedEntities(entities)[2].name).toBe('Alex')
+      expect(sort.getSortedEntities(entities)[2].id).toBe(1)
+    })
+
+    it('should return 11', () => {
+      expect(renderTimes).toBe(11)
+    })
+  })
+  describe('Sorting by Name', () => {
+    it('force order: Paul, Ketty, Alex', () => {
+      sort.by('name', TABLE_SORT_DESC)
+      expect(sort.getSortedEntities(entities)[0].name).toBe('Paul')
+      expect(sort.getSortedEntities(entities)[0].id).toBe(2)
+
+      expect(sort.getSortedEntities(entities)[1].name).toBe('Ketty')
+      expect(sort.getSortedEntities(entities)[1].id).toBe(4)
+
+      expect(sort.getSortedEntities(entities)[2].name).toBe('Alex')
+      expect(sort.getSortedEntities(entities)[2].id).toBe(1)
+    })
+
+    it('should return 12', () => {
+      expect(renderTimes).toBe(12)
     })
   })
 })
