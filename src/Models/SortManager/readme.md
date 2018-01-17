@@ -1,8 +1,11 @@
 ### Sorting: 
 ```javascript
 const tableSort = table.getSortManager()
-tableSort.by('name', TABLE_SORT_DESC)
+tableSort.by('name') // DESC
+tableSort.by('name') // ASC
+tableSort.by('name') // DESC
 tableSort.by('name', TABLE_SORT_ASC)
+tableSort.by('name', TABLE_SORT_DESC)
 const sortedEntities = table.getEntities(entities)
 console.log(sortedEntities)
 ```

@@ -11,7 +11,11 @@ This package was created to separate Views and Models.
 ### Example:
 
 ```javascript
+table.getSortManager().by('name') // DESC
+table.getSortManager().by('name') // ASC
+table.getSortManager().by('name') // DESC
 table.getSortManager().by('name', TABLE_SORT_ASC)
+table.getSortManager().by('name', TABLE_SORT_DESC)
 table.getDensityManager().setDensity(3)
 table.getPaginationManager().setCurrentPage(34)
 table.getPaginationManager().next(entities)
@@ -23,15 +27,15 @@ table.getEntities(entities)
 ### Models:
 [TableBuilder](https://github.com/ui-package/table-component/blob/master/src/Builders/TableBuilder/readme.md)
 
-[Sort](https://github.com/ui-package/table-component/blob/master/src/Models/Sort/readme.md)
+[SortManager](https://github.com/ui-package/table-component/blob/master/src/Models/SortManager/readme.md)
 
-[PaginationManager](https://github.com/ui-package/table-component/blob/master/src/Models/Pagination/readme.md)
+[PaginationManager](https://github.com/ui-package/table-component/blob/master/src/Models/PaginationManager/readme.md)
 
-[DensityManager](https://github.com/ui-package/table-component/blob/master/src/Models/Density/readme.md)
+[DensityManager](https://github.com/ui-package/table-component/blob/master/src/Models/DensityManager/readme.md)
 
-[DataSelectorManager](https://github.com/ui-package/table-component/blob/master/src/Models/Chosen/readme.md)
+[DataSelectorManager](https://github.com/ui-package/table-component/blob/master/src/Models/DataSelectorManager/readme.md)
 
-[ResetManager](https://github.com/ui-package/table-component/blob/master/src/Models/Reset/readme.md)
+[ResetManager](https://github.com/ui-package/table-component/blob/master/src/Models/ResetManager/readme.md)
 
-[Render](https://github.com/ui-package/table-component/blob/master/src/Models/Render/readme.md)
+[RenderManager](https://github.com/ui-package/table-component/blob/master/src/Models/RenderManager/readme.md)
 
