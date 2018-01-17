@@ -26,7 +26,7 @@ describe('TableBuilder', () => {
     expect(renderTimes).toBe(4)
   })
   it('should return 5',() => {
-    table.getChooseManager().set([])
+    table.getDataSelectorManager().set([])
     expect(renderTimes).toBe(5)
   })
   it('should return 6',() => {

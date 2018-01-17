@@ -1,7 +1,7 @@
-import RenderInterface from '../../../src/Models/Render/RenderInterface'
-import Reset from '../../../src/Models/Reset/Reset';
+import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface'
+import Reset from '../../../src/Models/ResetManager/ResetManager';
 
-describe('Reset', () => {
+describe('ResetManager', () => {
   const table = new RenderInterface()
   let renderTimes = 0
   table.reRenderView = () => {

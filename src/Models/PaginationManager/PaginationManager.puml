@@ -1,0 +1,38 @@
+@startuml
+
+interface RenderManagerInterface {
+  {abstract} reRenderView()
+}
+interface PaginationManagerInterface {
+  {abstract} first(entities: T[])
+  {abstract} prev(entities: T[])
+  {abstract} next(entities: T[])
+  {abstract} latest(entities: T[])
+  {abstract} hasPrev(entities: T[]): Boolean
+  {abstract} hasNext(entities: T[]): Boolean
+  {abstract} setCurrentPage(pageNumber: Number)
+  {abstract} getCurrentPage(): Number
+  {abstract} getLatestPage(entities: T[]): Number
+  {abstract} getLimitRows (): Number
+  {abstract} setLimitRows (max)
+  {abstract} getArrayLimitRows (): Number[]
+  {abstract} getCutEntities(entities: T[]): Array
+}
+class PaginationManager {
+  table
+  handleChange()
+}
+PaginationManager o-- "0 .. *" Entity
+PaginationManagerInterface <|.. PaginationManager
+RenderManagerInterface <-o  PaginationManager
+note left on link
+handleChange() {
+  // ... code ...
+  table.reRenderView()
+}
+end note
+PaginationManager <- CLIENT
+note left on link
+  pad.setCurrentPage(34)
+end note
+@enduml

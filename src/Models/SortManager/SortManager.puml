@@ -1,0 +1,38 @@
+@startuml
+
+interface RenderManagerInterface {
+  {abstract} reRenderView()
+}
+interface ColumnManagerInterface {
+  {abstract} createBodyColumns(entity: T): ColumnBodyEntityInterface[]
+  {abstract} getHeadColumns(): ColumnHeadEntityInterface[]
+}
+interface SortManagerInterface <T> {
+  {abstract} getSortManageredEntities (entities: T[]): T[]
+  {abstract} by(field)
+}
+class SortManager {
+    table: RenderManagerInterface
+    entities
+    handleChange()
+}
+SortManagerInterface <|.. SortManager
+
+ColumnManagerInterface <-- SortManagerInterface
+note left on link
+columnManager.getHeadColumns()
+end note
+RenderManagerInterface <-o  SortManager
+note left on link
+handleChange(entity) {
+  // ... code ...
+  table.reRenderView()
+}
+end note
+
+SortManager <-  CLIENT
+note left on link
+SortManager.by("name")
+end note
+SortManager o-- "0 .. *" Entity
+@enduml

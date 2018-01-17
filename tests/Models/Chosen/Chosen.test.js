@@ -1,6 +1,6 @@
-import Chosen from '../../../src/Models/Chosen/Chosen';
-import RenderInterface from '../../../src/Models/Render/RenderInterface';
-describe('Chosen', () => {
+import Chosen from '../../../src/Models/DataSelectorManager/DataSelectorManager';
+import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface';
+describe('DataSelectorManager', () => {
   const table = new RenderInterface()
   let renderTimes = 0
   table.reRenderView = () => {

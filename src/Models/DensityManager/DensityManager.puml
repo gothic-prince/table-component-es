@@ -1,0 +1,25 @@
+@startuml
+
+interface RenderManagerInterface {
+  {abstract} reRenderView()
+}
+interface DensityManagerInterface {
+  {abstract} setDensity(density: number)
+  {abstract} getDensity()
+}
+class DensityManager {
+  table: RenderManagerInterface
+}
+DensityManagerInterface <|.. DensityManager
+RenderManagerInterface <-o  DensityManager
+note left on link
+setDensity(density) {
+  // ... code ...
+  table.reRenderView()
+}
+end note
+DensityManager <-- CLIENT
+note left on link
+  density.setDensity(2)
+end note
+@enduml

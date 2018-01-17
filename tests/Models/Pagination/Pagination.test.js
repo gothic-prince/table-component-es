@@ -1,6 +1,6 @@
-import Pagination from '../../../src/Models/Pagination/Pagination'
-import RenderInterface from '../../../src/Models/Render/RenderInterface';
-describe('Pagination', () => {
+import Pagination from '../../../src/Models/PaginationManager/PaginationManager'
+import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface';
+describe('PaginationManager', () => {
   const table = new RenderInterface()
   let renderTimes = 0
   table.reRenderView = () => {

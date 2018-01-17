@@ -38,39 +38,39 @@ export default class TableFacade extends TableFacadeAbstract {
     return this._columnManager
   }
   /**
-   * @return {RenderInterface}
+   * @return {RenderManagerInterface}
    */
   getRenderManager () {
     return this._renderManager
   }
   /**
-   * @return {PaginationInterface}
+   * @return {PaginationManagerInterface}
    */
   getPaginationManager() {
     return this._paginationManager
   }
   /**
-   * @return {DensityInterface}
+   * @return {DensityManagerInterface}
    */
   getDensityManager() {
     return this._densityManager
   }
   /**
-   * @return {ResetInterface}
+   * @return {ResetManagerInterface}
    */
   getResetManager() {
     return this._resetManager
   }
   /**
-   * @return {SortInterface}
+   * @return {SortManagerInterface}
    */
   getSortManager () {
     return this._sortManager
   }
   /**
-   * @return {ChosenInterface}
+   * @return {DataSelectorManagerInterface}
    */
-  getChooseManager () {
+  getDataSelectorManager () {
     return this._chooseManager
   }
 
@@ -83,7 +83,7 @@ export default class TableFacade extends TableFacadeAbstract {
     return this
   }
   /**
-   * @param manager {RenderInterface}
+   * @param manager {RenderManagerInterface}
    * @return {TableFacadeAbstract}
    */
   setRenderManager (manager) {
@@ -91,7 +91,7 @@ export default class TableFacade extends TableFacadeAbstract {
     return this
   }
   /**
-   * @param manager {PaginationInterface}
+   * @param manager {PaginationManagerInterface}
    * @return {TableFacadeAbstract}
    */
   setPagination(manager) {
@@ -99,7 +99,7 @@ export default class TableFacade extends TableFacadeAbstract {
     return this
   }
   /**
-   * @param manager {DensityInterface}
+   * @param manager {DensityManagerInterface}
    * @return {TableFacadeAbstract}
    */
   setDensity(manager) {
@@ -107,7 +107,7 @@ export default class TableFacade extends TableFacadeAbstract {
     return this
   }
   /**
-   * @param manager {ResetInterface}
+   * @param manager {ResetManagerInterface}
    * @return {TableFacadeAbstract}
    */
   setReset(manager) {
@@ -115,7 +115,7 @@ export default class TableFacade extends TableFacadeAbstract {
     return this
   }
   /**
-   * @param manager {SortInterface}
+   * @param manager {SortManagerInterface}
    * @return {TableFacadeAbstract}
    */
   setSortManager (manager) {
@@ -123,10 +123,10 @@ export default class TableFacade extends TableFacadeAbstract {
     return this
   }
   /**
-   * @param manager {ChosenInterface}
+   * @param manager {DataSelectorManagerInterface}
    * @return {TableFacadeAbstract}
    */
-  setChooseManager (manager) {
+  setDataSelectorManager (manager) {
     this._chooseManager = manager
     return this
   }

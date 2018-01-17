@@ -1,10 +1,8 @@
-import TableBuilderInterface from './TableBuilderInterface'
-import TableFacade from '../../Facades/TableFacade'
-import Chosen from '../../Models/Chosen/Chosen'
-import Density from '../../Models/Density/Density'
-import Pagination from '../../Models/Pagination/Pagination'
-import Reset from '../../Models/Reset/Reset'
-import Sort from '../../Models/Sort/Sort'
+import DataSelectorManager from '../../Models/DataSelectorManager/DataSelectorManager'
+import DensityManager from '../../Models/DensityManager/DensityManager'
+import Pagination from '../../Models/PaginationManager/PaginationManager'
+import Reset from '../../Models/ResetManager/ResetManager'
+import Sort from '../../Models/SortManager/SortManager'
 import TableBuilderAbstract from './TableBuilderAbstract'
 
 export default class TableBuilder extends TableBuilderAbstract {
@@ -16,13 +14,13 @@ export default class TableBuilder extends TableBuilderAbstract {
     super(onRender, columnManager)
   }
   buildChooseManager(type) {
-    this.getFacade().setChooseManager(
-      new Chosen(this.getRenderManager())
+    this.getFacade().setDataSelectorManager(
+      new DataSelectorManager(this.getRenderManager())
     )
   }
   buildDensityManager(type) {
     this.getFacade().setDensity(
-      new Density(this.getRenderManager())
+      new DensityManager(this.getRenderManager())
     )
   }
   buildPaginationManager(type) {

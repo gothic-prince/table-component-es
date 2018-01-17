@@ -1,6 +1,6 @@
-import RenderInterface from '../../../src/Models/Render/RenderInterface'
-import Density from '../../../src/Models/Density/Density';
-describe('Density', () => {
+import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface'
+import Density from '../../../src/Models/DensityManager/DensityManager';
+describe('DensityManager', () => {
   const table = new RenderInterface()
   let renderTimes = 0
   table.reRenderView = () => {

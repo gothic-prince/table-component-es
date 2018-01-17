@@ -1,6 +1,6 @@
 import TableBuilderInterface from './TableBuilderInterface'
 import TableFacade from '../../Facades/TableFacade'
-import RenderManager from '../../Models/Render/RenderManager'
+import RenderManager from '../../Models/RenderManager/RenderManager'
 import {TABLE_BUILD_DEFAULT} from './constants';
 
 export default class TableBuilderAbstract extends TableBuilderInterface {
@@ -53,7 +53,7 @@ export default class TableBuilderAbstract extends TableBuilderInterface {
   }
   /**
    * @protected
-   * @return {RenderInterface}
+   * @return {RenderManagerInterface}
    */
   getRenderManager () {
     return this._renderManager

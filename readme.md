@@ -25,13 +25,13 @@ table.getEntities(entities)
 
 [Sort](https://github.com/ui-package/table-component/blob/master/src/Models/Sort/readme.md)
 
-[Pagination](https://github.com/ui-package/table-component/blob/master/src/Models/Pagination/readme.md)
+[PaginationManager](https://github.com/ui-package/table-component/blob/master/src/Models/Pagination/readme.md)
 
-[Density](https://github.com/ui-package/table-component/blob/master/src/Models/Density/readme.md)
+[DensityManager](https://github.com/ui-package/table-component/blob/master/src/Models/Density/readme.md)
 
-[Chosen](https://github.com/ui-package/table-component/blob/master/src/Models/Chosen/readme.md)
+[DataSelectorManager](https://github.com/ui-package/table-component/blob/master/src/Models/Chosen/readme.md)
 
-[Reset](https://github.com/ui-package/table-component/blob/master/src/Models/Reset/readme.md)
+[ResetManager](https://github.com/ui-package/table-component/blob/master/src/Models/Reset/readme.md)
 
 [Render](https://github.com/ui-package/table-component/blob/master/src/Models/Render/readme.md)
 

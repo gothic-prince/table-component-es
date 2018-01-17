@@ -2,23 +2,23 @@
 interface ColumnManagerInterface {
 
 }
-interface RenderInterface {
+interface RenderManagerInterface {
   reRenderView()
 }
-interface PaginationInterface {
+interface PaginationManagerInterface {
   setCurrentPage(page: number)
 }
-interface ChosenInterface {
+interface DataSelectorManagerInterface {
   set (entities)
   add (entity)
 }
 interface SortInterface {
   by(field: string)
 }
-interface ResetInterface {
+interface ResetManagerInterface {
   reload()
 }
-interface DensityInterface {
+interface DensityManagerInterface {
   setDensity(density: number)
 }
 abstract class TableFacadeAbstract {
@@ -31,17 +31,17 @@ class TableBuilder {
 TableBuilder .> TableFacadeAbstract
 
 ColumnManagerInterface <--o TableFacadeAbstract
-RenderInterface <--o TableFacadeAbstract
+RenderManagerInterface <--o TableFacadeAbstract
 note left on link
 table.reRenderView()
 end note
 
-TableFacadeAbstract -> PaginationInterface
+TableFacadeAbstract -> PaginationManagerInterface
 note left on link
 pag.setCurrentPage(34)
 end note
-TableFacadeAbstract ---> DensityInterface
-TableFacadeAbstract ---> ResetInterface
+TableFacadeAbstract ---> DensityManagerInterface
+TableFacadeAbstract ---> ResetManagerInterface
 TableFacadeAbstract ---> SortInterface
-TableFacadeAbstract ---> ChosenInterface
+TableFacadeAbstract ---> DataSelectorManagerInterface
 @enduml

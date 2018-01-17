@@ -17,39 +17,89 @@ export default class TableFacadeAbstract extends TableFacadeInterface {
     throw new Error('Method "getColumnManager" should be defined')
   }
   /**
-   * @return {RenderInterface}
+   * @return {RenderManagerInterface}
    */
   getRenderManager () {
     throw new Error('Method "getRenderManager" should be defined')
   }
   /**
-   * @return {PaginationInterface}
+   * @return {PaginationManagerInterface}
    */
   getPaginationManager() {
     throw new Error('Method "getPaginationManager" should be defined')
   }
   /**
-   * @return {DensityInterface}
+   * @return {DensityManagerInterface}
    */
   getDensityManager() {
     throw new Error('Method "getDensityManager" should be defined')
   }
   /**
-   * @return {ResetInterface}
+   * @return {ResetManagerInterface}
    */
   getResetManager() {
     throw new Error('Method "getResetManager" should be defined')
   }
   /**
-   * @return {SortInterface}
+   * @return {SortManagerInterface}
    */
   getSortManager () {
     throw new Error('Method "getSortManager" should be defined')
   }
   /**
-   * @return {ChosenInterface}
+   * @return {DataSelectorManagerInterface}
    */
-  getChooseManager () {
-    throw new Error('Method "getChooseManager" should be defined')
+  getDataSelectorManager () {
+    throw new Error('Method "getDataSelectorManager" should be defined')
+  }
+
+  /**
+   * @param manager {ColumnManagerInterface}
+   * @return {TableFacadeAbstract}
+   */
+  setColumnManager (manager) {
+    throw new Error('Method "setColumnManager" should be defined')
+  }
+  /**
+   * @param manager {RenderManagerInterface}
+   * @return {TableFacadeAbstract}
+   */
+  setRenderManager (manager) {
+    throw new Error('Method "setRenderManager" should be defined')
+  }
+  /**
+   * @param manager {PaginationManagerInterface}
+   * @return {TableFacadeAbstract}
+   */
+  setPagination(manager) {
+    throw new Error('Method "setPagination" should be defined')
+  }
+  /**
+   * @param manager {DensityManagerInterface}
+   * @return {TableFacadeAbstract}
+   */
+  setDensity(manager) {
+    throw new Error('Method "setDensity" should be defined')
+  }
+  /**
+   * @param manager {ResetManagerInterface}
+   * @return {TableFacadeAbstract}
+   */
+  setReset(manager) {
+    throw new Error('Method "setReset" should be defined')
+  }
+  /**
+   * @param manager {SortManagerInterface}
+   * @return {TableFacadeAbstract}
+   */
+  setSortManager (manager) {
+    throw new Error('Method "setSortManager" should be defined')
+  }
+  /**
+   * @param manager {DataSelectorManagerInterface}
+   * @return {TableFacadeAbstract}
+   */
+  setDataSelectorManager (manager) {
+    throw new Error('Method "setChooseManager" should be defined')
   }
 }

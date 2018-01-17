@@ -16,7 +16,7 @@ export default class TableFacadeInterface {
     throw new Error('Method "getColumnManager" should be defined')
   }
   /**
-   * @return {RenderInterface}
+   * @return {RenderManagerInterface}
    */
   getRenderManager () {
     throw new Error('Method "getRenderManager" should be defined')

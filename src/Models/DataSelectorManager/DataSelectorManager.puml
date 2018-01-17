@@ -1,0 +1,32 @@
+@startuml
+
+interface RenderManagerInterface {
+  {abstract} reRenderView()
+}
+interface DataSelectorManagerInterface <T> {
+  {abstract} add (entity: T)
+  {abstract} set (entities: T[])
+  {abstract} get(): T[]
+  {abstract} isChosen(entity: T)
+}
+class DataSelectorManager {
+    table: RenderManagerInterface
+    entities
+    handleChange()
+}
+DataSelectorManagerInterface <|.. DataSelectorManager
+
+RenderManagerInterface <-o  DataSelectorManager
+note left on link
+handleChange(entity) {
+  // ... code ...
+  table.reRenderView()
+}
+end note
+
+DataSelectorManager <-  CLIENT
+note left on link
+selector.set(entities)
+end note
+DataSelectorManager o-- "0 .. *" Entity
+@enduml

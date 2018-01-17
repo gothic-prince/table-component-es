@@ -1,0 +1,66 @@
+@startuml
+
+interface PaginationManagerInterface <T> {
+  {abstract} first(entities: T[])
+  {abstract} prev(entities: T[])
+  {abstract} next(entities: T[])
+  {abstract} latest(entities: T[]): T[]
+  {abstract} hasPrev(entities: T[]): Boolean
+  {abstract} hasNext(entities: T[]): Boolean
+  {abstract} setCurrentPage(pageNumber: Number)
+  {abstract} getCurrentPage(): Number
+  {abstract} getLatestPage(entities: T[]): Number
+  {abstract} getLimitRows (): Number
+  {abstract} setLimitRows (max): Number
+  {abstract} getArrayLimitRows (): Number[]
+  {abstract} getCutEntities(entities: T[]): Array
+}
+interface DensityManagerInterface {
+  {abstract} setDensity(density: number)
+  {abstract} getDensity()
+}
+interface ResetManagerInterface {
+  {abstract} reload()
+}
+interface DataSelectorManagerInterface <T> {
+  {abstract} add (entity: T)
+  {abstract} set (entities: T[])
+  {abstract} get(): T[]
+  {abstract} isChosen(entity: T)
+}
+
+interface SortManagerInterface <T> {
+    getSortManageredEntities (entities: T[], columns: ColumnHeadEntityInterface[]): T[]
+    by(field: string)
+}
+
+interface RenderManagerInterface {
+    {abstract} reRenderView()
+}
+
+interface TableFacadeInterface <T> {
+  check(entity: T, entity2: T): boolean
+  getSortManager (): SortManagerInterface
+  getChooser (): DataSelectorManagerInterface
+  getEntities(entities: T[]): T[]
+  getBodyColumns(entity: T): ColumnBodyEntityInterface[]
+  getHeadColumns(): ColumnHeadEntityInterface[]
+  getTableName(): string
+}
+
+DataSelectorManagerInterface o--> TableFacadeInterface
+
+ResetManagerInterface o--> TableFacadeInterface
+
+TableFacadeInterface <--o DensityManagerInterface
+
+TableFacadeInterface <--o PaginationManagerInterface
+
+TableFacadeInterface <--o SortManagerInterface
+
+RenderManagerInterface ..|> TableFacadeInterface
+note left on link
+  table.reRenderView()
+end note
+TableFacadeInterface <- CLIENT
+@enduml
