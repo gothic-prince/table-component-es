@@ -1,8 +1,8 @@
 import DataSelectorManager from '../../Models/DataSelectorManager/DataSelectorManager'
 import DensityManager from '../../Models/DensityManager/DensityManager'
-import Pagination from '../../Models/PaginationManager/PaginationManager'
-import Reset from '../../Models/ResetManager/ResetManager'
-import Sort from '../../Models/SortManager/SortManager'
+import PaginationManager from '../../Models/PaginationManager/PaginationManager'
+import ResetManager from '../../Models/ResetManager/ResetManager'
+import SortManager from '../../Models/SortManager/SortManager'
 import TableBuilderAbstract from './TableBuilderAbstract'
 
 export default class TableBuilder extends TableBuilderAbstract {
@@ -25,17 +25,17 @@ export default class TableBuilder extends TableBuilderAbstract {
   }
   buildPaginationManager(type) {
     this.getFacade().setPagination(
-      new Pagination(this.getRenderManager())
+      new PaginationManager(this.getRenderManager())
     )
   }
   buildResetManager(type) {
     this.getFacade().setReset(
-      new Reset(this.getRenderManager())
+      new ResetManager(this.getRenderManager())
     )
   }
   buildSortManager(type) {
     this.getFacade().setSortManager(
-      new Sort(this.getRenderManager(), this.getColumnManager())
+      new SortManager(this.getRenderManager(), this.getColumnManager())
     )
   }
 }

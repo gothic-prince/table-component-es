@@ -1,21 +1,21 @@
-import TableFacade from '../../src/Facades/TableFacade';
-import ColumnManagerInterface from '../../src/Models/ColumnManager/ColumnManagerInterface';
-import RenderInterface from '../../src/Models/RenderManager/RenderManagerInterface';
-import PaginationInterface from '../../src/Models/PaginationManager/PaginationManagerInterface';
-import DensityInterface from '../../src/Models/DensityManager/DensityManagerInterface';
-import ResetInterface from '../../src/Models/ResetManager/ResetManagerInterface';
-import ChosenInterface from '../../src/Models/DataSelectorManager/DataSelectorManagerInterface';
-import SortInterface from '../../src/Models/SortManager/SortManagerInterface';
+import TableFacade from '../../src/Facades/TableFacade'
+import ColumnManagerInterface from '../../src/Models/ColumnManager/ColumnManagerInterface'
+import RenderManagerInterface from '../../src/Models/RenderManager/RenderManagerInterface'
+import PaginationManagerInterface from '../../src/Models/PaginationManager/PaginationManagerInterface'
+import DensityManagerInterface from '../../src/Models/DensityManager/DensityManagerInterface'
+import ResetManagerInterface from '../../src/Models/ResetManager/ResetManagerInterface'
+import DataSelectorManagerInterface from '../../src/Models/DataSelectorManager/DataSelectorManagerInterface'
+import SortManagerInterface from '../../src/Models/SortManager/SortManagerInterface'
 describe('TableFacade', () => {
   const facade = new TableFacade()
 
   const columnManager = new ColumnManagerInterface()
-  const render = new RenderInterface()
-  const pag = new PaginationInterface()
-  const density = new DensityInterface()
-  const reset = new ResetInterface()
-  const sort = new SortInterface()
-  const chooser = new ChosenInterface()
+  const render = new RenderManagerInterface()
+  const pag = new PaginationManagerInterface()
+  const density = new DensityManagerInterface()
+  const reset = new ResetManagerInterface()
+  const sort = new SortManagerInterface()
+  const chooser = new DataSelectorManagerInterface()
 
   pag.getCutEntities = () => [1,6]
   sort.getSortedEntities = (data) => data
@@ -32,22 +32,22 @@ describe('TableFacade', () => {
     expect(facade.getColumnManager() instanceof ColumnManagerInterface).toBe(true)
   })
   it('should return object of RenderManagerInterface', () => {
-    expect(facade.getRenderManager() instanceof RenderInterface).toBe(true)
+    expect(facade.getRenderManager() instanceof RenderManagerInterface).toBe(true)
   })
   it('should return object of PaginationManagerInterface', () => {
-    expect(facade.getPaginationManager() instanceof PaginationInterface).toBe(true)
+    expect(facade.getPaginationManager() instanceof PaginationManagerInterface).toBe(true)
   })
   it('should return object of DensityManagerInterface', () => {
-    expect(facade.getDensityManager() instanceof DensityInterface).toBe(true)
+    expect(facade.getDensityManager() instanceof DensityManagerInterface).toBe(true)
   })
   it('should return object of ResetManagerInterface', () => {
-    expect(facade.getResetManager() instanceof ResetInterface).toBe(true)
+    expect(facade.getResetManager() instanceof ResetManagerInterface).toBe(true)
   })
   it('should return object of SortManagerInterface', () => {
-    expect(facade.getSortManager() instanceof SortInterface).toBe(true)
+    expect(facade.getSortManager() instanceof SortManagerInterface).toBe(true)
   })
   it('should return object of DataSelectorManagerInterface', () => {
-    expect(facade.getDataSelectorManager() instanceof ChosenInterface).toBe(true)
+    expect(facade.getDataSelectorManager() instanceof DataSelectorManagerInterface).toBe(true)
   })
   describe('getEntities', () => {
     let data = [1,2,3,4]
