@@ -1,11 +1,11 @@
 ### Example:
 
 ```javascript
-const tableRowChoosing = table.getChooseManager()
-tableRowChoosing.add(entities[1])
-tableRowChoosing.add(entities[4])
-const chosenEntities = tableRowChoosing.get()
-console.log(chosenEntities)
+const selector = table.getDataSelectorManager()
+selector.add(entities[1])
+selector.add(entities[4])
+const selectedEntities = selector.get()
+console.log(selectedEntities)
 ```
 
 ## [DataSelectorManagerInterface](DataSelectorManagerInterface.js) and [DataSelectorManager](DataSelectorManager.js)
