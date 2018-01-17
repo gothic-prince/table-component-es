@@ -19,10 +19,10 @@ const table = builder.getTableFacade()
 
 ```
 ### See more about:
-[TableBuilderInterface](./src/Facades/TableFacadeInterface.js),
-[TableBuilderAbstract](./src/Facades/TableFacadeAbstract.js)
+[TableBuilderInterface](../../Facades/TableFacadeInterface.js),
+[TableBuilderAbstract](../../Facades/TableFacadeAbstract.js)
 and
-[TableBuilder](./src/Facades/TableFacade.js)
+[TableBuilder](../../Facades/TableFacade.js)
 
 
 ![TableFacade.png](./TableBuilder.png)

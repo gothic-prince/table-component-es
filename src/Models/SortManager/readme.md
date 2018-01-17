@@ -10,7 +10,7 @@ const sortedEntities = table.getEntities(entities)
 console.log(sortedEntities)
 ```
 
-## [ResetManagerInterface](./ResetInterface.js) and [ResetManager](./Reset.js)
+## [SortManagerInterface](./SortManagerInterface.js) and [SortManager](./SortManager.js)
 
 ### Methods:
 
