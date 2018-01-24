@@ -1,5 +1,5 @@
-import Chosen from '../../../src/Models/DataSelectorManager/DataSelectorManager';
-import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface';
+import Chosen from '../../../dist/Models/DataSelectorManager/DataSelectorManager';
+import RenderInterface from '../../../dist/Models/RenderManager/RenderManagerInterface';
 describe('DataSelectorManager', () => {
   const table = new RenderInterface()
   let renderTimes = 0

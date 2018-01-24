@@ -1,11 +1,11 @@
-import TableFacade from '../../src/Facades/TableFacade'
-import ColumnManagerInterface from '../../src/Models/ColumnManager/ColumnManagerInterface'
-import RenderManagerInterface from '../../src/Models/RenderManager/RenderManagerInterface'
-import PaginationManagerInterface from '../../src/Models/PaginationManager/PaginationManagerInterface'
-import DensityManagerInterface from '../../src/Models/DensityManager/DensityManagerInterface'
-import ResetManagerInterface from '../../src/Models/ResetManager/ResetManagerInterface'
-import DataSelectorManagerInterface from '../../src/Models/DataSelectorManager/DataSelectorManagerInterface'
-import SortManagerInterface from '../../src/Models/SortManager/SortManagerInterface'
+import TableFacade from '../../dist/Facades/TableFacade'
+import ColumnManagerInterface from '../../dist/Models/ColumnManager/ColumnManagerInterface'
+import RenderManagerInterface from '../../dist/Models/RenderManager/RenderManagerInterface'
+import PaginationManagerInterface from '../../dist/Models/PaginationManager/PaginationManagerInterface'
+import DensityManagerInterface from '../../dist/Models/DensityManager/DensityManagerInterface'
+import ResetManagerInterface from '../../dist/Models/ResetManager/ResetManagerInterface'
+import DataSelectorManagerInterface from '../../dist/Models/DataSelectorManager/DataSelectorManagerInterface'
+import SortManagerInterface from '../../dist/Models/SortManager/SortManagerInterface'
 describe('TableFacade', () => {
   const facade = new TableFacade()
 

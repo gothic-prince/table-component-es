@@ -1,4 +1,4 @@
-import ColumnBodyEntity from '../../../src/Entities/BodyColumn/ColumnBodyEntity';
+import ColumnBodyEntity from '../../../dist/Entities/BodyColumn/ColumnBodyEntity'
 describe('ColumnBodyEntity', () => {
   describe('3 params', () => {
     const entity = new ColumnBodyEntity('name', 'Alex', '<b>Alex</b>')

@@ -1,4 +1,4 @@
-import ColumnEntityFactory from '../../src/Factories/ColumnEntityFactory';
+import ColumnEntityFactory from '../../dist/Factories/ColumnEntityFactory';
 describe('ColumnEntityFactory', () => {
   const factory = new ColumnEntityFactory(true)
   describe('Head', () => {

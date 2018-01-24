@@ -1,5 +1,5 @@
-import ColumnManagerInterface from '../../../src/Models/ColumnManager/ColumnManagerInterface'
-import TableBuilder from '../../../src/Builders/TableBuilder/TableBuilder';
+import ColumnManagerInterface from '../../../dist/Models/ColumnManager/ColumnManagerInterface'
+import TableBuilder from '../../../dist/Builders/TableBuilder/TableBuilder';
 describe('TableBuilder', () => {
   const columnManager = new ColumnManagerInterface()
   columnManager.createBodyColumns = () => []

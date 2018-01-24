@@ -1,6 +1,6 @@
-import ColumnManager from '../../../src/Models/ColumnManager/ColumnManager';
-import ColumnHeadEntity from '../../../src/Entities/HeadColumn/ColumnHeadEntity';
-import ColumnBodyEntity from '../../../src/Entities/BodyColumn/ColumnBodyEntity';
+import ColumnManager from '../../../dist/Models/ColumnManager/ColumnManager';
+import ColumnHeadEntity from '../../../dist/Entities/HeadColumn/ColumnHeadEntity';
+import ColumnBodyEntity from '../../../dist/Entities/BodyColumn/ColumnBodyEntity';
 describe('ColumnManager', () => {
   const columnName = new ColumnHeadEntity('name', 'Name', false, false)
   const columnId = new ColumnHeadEntity('id', '#ID', true, true)

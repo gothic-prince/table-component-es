@@ -1,5 +1,5 @@
-import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface'
-import Reset from '../../../src/Models/ResetManager/ResetManager';
+import RenderInterface from '../../../dist/Models/RenderManager/RenderManagerInterface'
+import Reset from '../../../dist/Models/ResetManager/ResetManager';
 
 describe('ResetManager', () => {
   const table = new RenderInterface()

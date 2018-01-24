@@ -1,9 +1,9 @@
-import SortManager from '../../../src/Models/SortManager/SortManager';
-import ColumnManager from '../../../src/Models/ColumnManager/ColumnManager';
-import ColumnBodyEntity from '../../../src/Entities/BodyColumn/ColumnBodyEntity';
-import ColumnHeadEntity from '../../../src/Entities/HeadColumn/ColumnHeadEntity';
-import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface';
-import {TABLE_SORT_ASC, TABLE_SORT_DESC} from '../../../src/Models/SortManager/constants';
+import SortManager from '../../../dist/Models/SortManager/SortManager';
+import ColumnManager from '../../../dist/Models/ColumnManager/ColumnManager';
+import ColumnBodyEntity from '../../../dist/Entities/BodyColumn/ColumnBodyEntity';
+import ColumnHeadEntity from '../../../dist/Entities/HeadColumn/ColumnHeadEntity';
+import RenderInterface from '../../../dist/Models/RenderManager/RenderManagerInterface';
+import {TABLE_SORT_ASC, TABLE_SORT_DESC} from '../../../dist/Models/SortManager/constants';
 describe('SortManager', () => {
   const render = new RenderInterface()
   let renderTimes = 0

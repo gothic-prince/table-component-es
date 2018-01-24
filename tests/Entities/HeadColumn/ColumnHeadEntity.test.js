@@ -1,4 +1,4 @@
-import ColumnHeadEntity from '../../../src/Entities/HeadColumn/ColumnHeadEntity';
+import ColumnHeadEntity from '../../../dist/Entities/HeadColumn/ColumnHeadEntity';
 describe('ColumnHeadEntity', () => {
   describe('1 params', () => {
     const entity = new ColumnHeadEntity('name')

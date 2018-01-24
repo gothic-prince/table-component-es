@@ -1,5 +1,5 @@
-import RenderInterface from '../../../src/Models/RenderManager/RenderManagerInterface'
-import Density from '../../../src/Models/DensityManager/DensityManager';
+import RenderInterface from '../../../dist/Models/RenderManager/RenderManagerInterface'
+import Density from '../../../dist/Models/DensityManager/DensityManager';
 describe('DensityManager', () => {
   const table = new RenderInterface()
   let renderTimes = 0
