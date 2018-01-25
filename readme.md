@@ -1,12 +1,14 @@
 ### Introduction:
 
 This package was created to separate Views and Models. 
+This package implements logic. Thus, you need create View.
+
+Package [`ui-package--table-component-react`](https://www.npmjs.com/package/ui-package--table-component-react) implements these models. 
 
 ### Solutions: 
 * You can use one model to create table for any frameworks. It can solve issue to supporting application with a few frameworks (like React and React Native). 
 * Simple testing.
-* Simple extending. You can add or edit behavior. 
-* You can override models so, to it keep settings of table.
+* Simple extending. You can add or edit behavior. You can override models so, to it keep settings of table.
 
 ### Example:
 

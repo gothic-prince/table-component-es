@@ -16,15 +16,38 @@ var DataSelectorManagerInterface = function () {
   _createClass(DataSelectorManagerInterface, [{
     key: "add",
     value: function add(entity) {}
+    /**
+     * @param entities {Array}
+     */
+
   }, {
     key: "set",
     value: function set(entities) {}
+
+    /**
+     * @return {Array}
+     */
+
   }, {
     key: "get",
     value: function get() {}
+    /**
+     * @param entity
+     * @return {Boolean}
+     */
+
   }, {
     key: "isChosen",
     value: function isChosen(entity) {}
+    /**
+     * @param entity1
+     * @param entity2
+     * @return {boolean}
+     */
+
+  }, {
+    key: "comparison",
+    value: function comparison(entity1, entity2) {}
   }]);
 
   return DataSelectorManagerInterface;
