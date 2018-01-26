@@ -10,6 +10,10 @@ export default class ColumnManager extends ColumnManagerInterface {
     this._getBody = getBody
     this._headers = headers
     this._table = table
+
+    headers.map((column) => {
+      column.setColumnManager(this)
+    })
   }
 
   /**

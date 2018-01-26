@@ -46,6 +46,14 @@ var ColumnHeadEntityInterface = function () {
   }, {
     key: "needSort",
     value: function needSort() {}
+    /**
+     * @param columnManager {ColumnManagerInterface}
+     * @return {ColumnHeadEntity}
+     */
+
+  }, {
+    key: "setColumnManager",
+    value: function setColumnManager(columnManager) {}
   }]);
 
   return ColumnHeadEntityInterface;

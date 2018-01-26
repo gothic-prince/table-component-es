@@ -34,6 +34,10 @@ var ColumnManager = function (_ColumnManagerInterfa) {
     _this._getBody = getBody;
     _this._headers = headers;
     _this._table = table;
+
+    headers.map(function (column) {
+      column.setColumnManager(_this);
+    });
     return _this;
   }
 
