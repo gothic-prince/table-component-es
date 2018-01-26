@@ -4,6 +4,7 @@ import PaginationManager from '../../Models/PaginationManager/PaginationManager'
 import ResetManager from '../../Models/ResetManager/ResetManager'
 import SortManager from '../../Models/SortManager/SortManager'
 import TableBuilderAbstract from './TableBuilderAbstract'
+import {TABLE_BUILD_DEFAULT} from '../../Builders/TableBuilder/constants'
 
 export default class TableBuilder extends TableBuilderAbstract {
   /**
@@ -14,28 +15,38 @@ export default class TableBuilder extends TableBuilderAbstract {
     super(onRender, columnManager)
   }
   buildChooseManager(type) {
-    this.getFacade().setDataSelectorManager(
-      new DataSelectorManager(this.getRenderManager())
-    )
+    if (type === TABLE_BUILD_DEFAULT) {
+      this.getFacade().setDataSelectorManager(
+        new DataSelectorManager(this.getRenderManager())
+      )
+    }
   }
   buildDensityManager(type) {
-    this.getFacade().setDensity(
-      new DensityManager(this.getRenderManager())
-    )
+    if (type === TABLE_BUILD_DEFAULT) {
+      this.getFacade().setDensity(
+        new DensityManager(this.getRenderManager())
+      )
+    }
   }
   buildPaginationManager(type) {
-    this.getFacade().setPagination(
-      new PaginationManager(this.getRenderManager())
-    )
+    if (type === TABLE_BUILD_DEFAULT) {
+      this.getFacade().setPagination(
+        new PaginationManager(this.getRenderManager())
+      )
+    }
   }
   buildResetManager(type) {
-    this.getFacade().setReset(
-      new ResetManager(this.getRenderManager())
-    )
+    if (type === TABLE_BUILD_DEFAULT) {
+      this.getFacade().setReset(
+        new ResetManager(this.getRenderManager())
+      )
+    }
   }
   buildSortManager(type) {
-    this.getFacade().setSortManager(
-      new SortManager(this.getRenderManager(), this.getColumnManager())
-    )
+    if (type === TABLE_BUILD_DEFAULT) {
+      this.getFacade().setSortManager(
+        new SortManager(this.getRenderManager(), this.getColumnManager())
+      )
+    }
   }
 }

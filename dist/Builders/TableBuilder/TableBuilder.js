@@ -30,6 +30,8 @@ var _TableBuilderAbstract2 = require('./TableBuilderAbstract');
 
 var _TableBuilderAbstract3 = _interopRequireDefault(_TableBuilderAbstract2);
 
+var _constants = require('../../Builders/TableBuilder/constants');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -54,27 +56,37 @@ var TableBuilder = function (_TableBuilderAbstract) {
   _createClass(TableBuilder, [{
     key: 'buildChooseManager',
     value: function buildChooseManager(type) {
-      this.getFacade().setDataSelectorManager(new _DataSelectorManager2.default(this.getRenderManager()));
+      if (type === _constants.TABLE_BUILD_DEFAULT) {
+        this.getFacade().setDataSelectorManager(new _DataSelectorManager2.default(this.getRenderManager()));
+      }
     }
   }, {
     key: 'buildDensityManager',
     value: function buildDensityManager(type) {
-      this.getFacade().setDensity(new _DensityManager2.default(this.getRenderManager()));
+      if (type === _constants.TABLE_BUILD_DEFAULT) {
+        this.getFacade().setDensity(new _DensityManager2.default(this.getRenderManager()));
+      }
     }
   }, {
     key: 'buildPaginationManager',
     value: function buildPaginationManager(type) {
-      this.getFacade().setPagination(new _PaginationManager2.default(this.getRenderManager()));
+      if (type === _constants.TABLE_BUILD_DEFAULT) {
+        this.getFacade().setPagination(new _PaginationManager2.default(this.getRenderManager()));
+      }
     }
   }, {
     key: 'buildResetManager',
     value: function buildResetManager(type) {
-      this.getFacade().setReset(new _ResetManager2.default(this.getRenderManager()));
+      if (type === _constants.TABLE_BUILD_DEFAULT) {
+        this.getFacade().setReset(new _ResetManager2.default(this.getRenderManager()));
+      }
     }
   }, {
     key: 'buildSortManager',
     value: function buildSortManager(type) {
-      this.getFacade().setSortManager(new _SortManager2.default(this.getRenderManager(), this.getColumnManager()));
+      if (type === _constants.TABLE_BUILD_DEFAULT) {
+        this.getFacade().setSortManager(new _SortManager2.default(this.getRenderManager(), this.getColumnManager()));
+      }
     }
   }]);
 
