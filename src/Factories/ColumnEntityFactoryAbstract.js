@@ -81,12 +81,16 @@ export default class ColumnEntityFactoryAbstract extends ColumnEntityFactoryInte
    * @return {ColumnBodyEntityInterface[]}
    */
   getBodies () {
-    return this._bodies
+    const bodies = [].concat(this._bodies)
+    this._bodies = []
+    return bodies
   }
   /**
    * @return {ColumnHeadEntityInterface[]}
    */
   getHeaders () {
-    return this._headers
+    const heads = [].concat(this._headers)
+    this._headers = []
+    return heads
   }
 }

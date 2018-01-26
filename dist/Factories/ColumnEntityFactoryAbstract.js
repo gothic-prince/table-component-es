@@ -124,7 +124,9 @@ var ColumnEntityFactoryAbstract = function (_ColumnEntityFactoryI) {
   }, {
     key: 'getBodies',
     value: function getBodies() {
-      return this._bodies;
+      var bodies = [].concat(this._bodies);
+      this._bodies = [];
+      return bodies;
     }
     /**
      * @return {ColumnHeadEntityInterface[]}
@@ -133,7 +135,9 @@ var ColumnEntityFactoryAbstract = function (_ColumnEntityFactoryI) {
   }, {
     key: 'getHeaders',
     value: function getHeaders() {
-      return this._headers;
+      var heads = [].concat(this._headers);
+      this._headers = [];
+      return heads;
     }
   }]);
 
