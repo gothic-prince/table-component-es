@@ -1,0 +1,5 @@
+export const COLUMN_STORAGE_NEED_SORT = 'sort'
+export const COLUMN_STORAGE_HIDDEN = 'hidden'
+export const COLUMN_STORAGE_HIDEABLE = 'hideable'
+export const COLUMN_STORAGE_REVERSE = 'revers'
+export const COLUMN_STORAGE_ACTIVE = 'active'
