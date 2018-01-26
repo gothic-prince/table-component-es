@@ -12,6 +12,10 @@ describe('ColumnHeadStorageEntity', () => {
     const storage = new StorageMock()
     const entity = new ColumnHeadStorageEntity('name')
     entity.setStorage(TABLE_NAME, [COLUMN_STORAGE_HIDDEN], storage)
+
+    it('should return false', () => {
+      expect(entity.isHidden()).toBe(false)
+    })
     it('should return true', () => {
       entity.setHidden(true)
       expect(storage.getData(entity.getKeyName(COLUMN_STORAGE_HIDDEN))).toBe(true)

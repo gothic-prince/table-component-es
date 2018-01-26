@@ -55,6 +55,7 @@ var ColumnHeadStorageEntity = function (_ColumnHeadEntity) {
     value: function isHidden() {
       if (this.isFromStorage(_constants.COLUMN_STORAGE_HIDDEN)) {
         if (this.getStorage().hasKey(this.getKeyName(_constants.COLUMN_STORAGE_HIDDEN))) {
+          console.log('isHidden', this.getStorage().getData(this.getKeyName(_constants.COLUMN_STORAGE_HIDDEN)));
           return this.getStorage().getData(this.getKeyName(_constants.COLUMN_STORAGE_HIDDEN));
         }
       }
