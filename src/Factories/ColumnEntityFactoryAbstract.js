@@ -70,7 +70,7 @@ export default class ColumnEntityFactoryAbstract extends ColumnEntityFactoryInte
    * @param html
    * @return {ColumnEntityFactoryInterface}
    */
-  addBody (name, row, html) {
+  addBody (name, row, html = undefined) {
     this._bodies.push(this.createBodyColumn(
       name, row, html
     ))

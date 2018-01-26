@@ -40,7 +40,9 @@ var ColumnEntityFactoryInterface = function () {
 
   }, {
     key: "addBody",
-    value: function addBody(name, row, html) {}
+    value: function addBody(name, row) {
+      var html = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+    }
 
     /**
      * @return {ColumnBodyEntityInterface[]}

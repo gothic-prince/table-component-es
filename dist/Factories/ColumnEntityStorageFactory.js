@@ -23,6 +23,10 @@ var _StorageInterface = require('storage-manager-es/dist/StorageInterface');
 
 var _StorageInterface2 = _interopRequireDefault(_StorageInterface);
 
+var _StorageLocal = require('storage-manager-es/dist/StorageLocal');
+
+var _StorageLocal2 = _interopRequireDefault(_StorageLocal);
+
 var _constants = require('../Entities/HeadColumn/constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -48,7 +52,9 @@ var ColumnEntityStorageFactory = function (_ColumnEntityFactoryA) {
    * @param storage {StorageInterface}
    * @param firstIsMain
    */
-  function ColumnEntityStorageFactory(tableName, options, storage) {
+  function ColumnEntityStorageFactory(tableName) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [HIDDEN];
+    var storage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : new _StorageLocal2.default();
     var firstIsMain = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
 
     _classCallCheck(this, ColumnEntityStorageFactory);

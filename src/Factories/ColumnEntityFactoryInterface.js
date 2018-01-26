@@ -15,7 +15,7 @@ export default class ColumnEntityFactoryInterface {
    * @param html
    * @return {ColumnEntityFactoryInterface}
    */
-  addBody (name, row, html) {}
+  addBody (name, row, html = undefined) {}
 
   /**
    * @return {ColumnBodyEntityInterface[]}

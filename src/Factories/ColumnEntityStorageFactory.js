@@ -2,6 +2,7 @@ import ColumnEntityFactoryAbstract from './ColumnEntityFactoryAbstract'
 import ColumnHeadStorageEntity from '../Entities/HeadColumn/ColumnHeadStorageEntity'
 import ColumnBodyEntity from '../Entities/BodyColumn/ColumnBodyEntity'
 import StorageInterface from 'storage-manager-es/dist/StorageInterface'
+import StorageLocal from 'storage-manager-es/dist/StorageLocal'
 import {
   COLUMN_STORAGE_NEED_SORT,
   COLUMN_STORAGE_HIDDEN,
@@ -23,7 +24,7 @@ export default class ColumnEntityStorageFactory extends ColumnEntityFactoryAbstr
    * @param storage {StorageInterface}
    * @param firstIsMain
    */
-  constructor(tableName, options, storage, firstIsMain = true) {
+  constructor(tableName, options = [HIDDEN], storage = new StorageLocal(), firstIsMain = true) {
     super(firstIsMain)
     this._tableName = tableName
     this._options = options
