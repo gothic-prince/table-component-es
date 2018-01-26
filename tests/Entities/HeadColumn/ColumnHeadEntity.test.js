@@ -1,4 +1,5 @@
-import ColumnHeadEntity from '../../../dist/Entities/HeadColumn/ColumnHeadEntity';
+import ColumnHeadEntity from '../../../dist/Entities/HeadColumn/ColumnHeadEntity'
+import ColumnManagerInterface from '../../../dist/Models/ColumnManager/ColumnManagerInterface'
 describe('ColumnHeadEntity', () => {
   describe('1 params', () => {
     const entity = new ColumnHeadEntity('name')
@@ -71,5 +72,40 @@ describe('ColumnHeadEntity', () => {
       expect(error).toBe('Parameter(1) should be defined')
     })
   })
-
+  describe('handle', () => {
+    const entity = new ColumnHeadEntity('name')
+    const columnManager = new ColumnManagerInterface()
+    let handledEntity = null
+    let handledType = null
+    columnManager.handleChangeHeadColumn = (column, type) => {
+      handledEntity = column
+      handledType = type
+    }
+    entity.setColumnManager(columnManager)
+    it('should return "revers"', () => {
+      entity.setReverse(false)
+      expect(handledEntity).toBe(entity)
+      expect(handledType).toBe('revers')
+    })
+    it('should return "active"', () => {
+      entity.setActive(true)
+      expect(handledEntity).toBe(entity)
+      expect(handledType).toBe('active')
+    })
+    it('should return "need_sort"', () => {
+      entity.setNeedSort(false)
+      expect(handledEntity).toBe(entity)
+      expect(handledType).toBe('need_sort')
+    })
+    it('should return "hideable"', () => {
+      entity.setHideable(true)
+      expect(handledEntity).toBe(entity)
+      expect(handledType).toBe('hideable')
+    })
+    it('should return "hidden"', () => {
+      entity.setHidden(false)
+      expect(handledEntity).toBe(entity)
+      expect(handledType).toBe('hidden')
+    })
+  })
 })

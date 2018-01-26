@@ -20,7 +20,7 @@ describe('SortManager', () => {
     new ColumnHeadEntity('name', 'Name'),
     new ColumnHeadEntity('id', '#ID')
   ]
-  const columnManager = new ColumnManager(getBody, headColumns)
+  const columnManager = new ColumnManager(render, getBody, headColumns)
   const sort = new SortManager(render, columnManager)
   const entities = [
     {

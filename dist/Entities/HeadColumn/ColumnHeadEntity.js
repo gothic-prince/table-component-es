@@ -38,6 +38,11 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
     }
     /**
      * @protected
+     * @type {ColumnManagerInterface}
+     */
+    _this.columnManager = null;
+    /**
+     * @protected
      */
     _this.name = name;
     /**
@@ -82,6 +87,7 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
     key: 'setHidden',
     value: function setHidden(value) {
       this.hidden = value;
+      this.handelChange('hidden');
       return this;
     }
   }, {
@@ -93,6 +99,7 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
     key: 'setHideable',
     value: function setHideable(value) {
       this.hiddeable = value;
+      this.handelChange('hideable');
       return this;
     }
   }, {
@@ -109,6 +116,7 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
     key: 'setActive',
     value: function setActive(bool) {
       this.active = bool;
+      this.handelChange('active');
       return this;
     }
   }, {
@@ -120,6 +128,7 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
     key: 'setReverse',
     value: function setReverse(bool) {
       this.reversed = bool;
+      this.handelChange('revers');
       return this;
     }
   }, {
@@ -131,6 +140,31 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
     key: 'setNeedSort',
     value: function setNeedSort(value) {
       this.needSord = value;
+      this.handelChange('need_sort');
+    }
+
+    /**
+     * @param columnManager {ColumnManagerInterface}
+     * @return {ColumnHeadEntity}
+     */
+
+  }, {
+    key: 'setColumnManager',
+    value: function setColumnManager(columnManager) {
+      this.columnManager = columnManager;
+      return this;
+    }
+    /**
+     * @protected
+     * @param type
+     */
+
+  }, {
+    key: 'handelChange',
+    value: function handelChange(type) {
+      if (this.columnManager !== null) {
+        this.columnManager.handleChangeHeadColumn(this, type);
+      }
     }
   }]);
 

@@ -8,4 +8,9 @@ export default class ColumnManagerInterface {
    * @return {ColumnHeadEntityInterface[]}
    */
   getHeadColumns() {}
+  /**
+   * @param column {ColumnHeadEntityInterface}
+   * @param type {String}
+   */
+  handleChangeHeadColumn (column, type) {}
 }

@@ -1,7 +1,10 @@
-import ColumnManager from '../../../dist/Models/ColumnManager/ColumnManager';
-import ColumnHeadEntity from '../../../dist/Entities/HeadColumn/ColumnHeadEntity';
-import ColumnBodyEntity from '../../../dist/Entities/BodyColumn/ColumnBodyEntity';
+import ColumnManager from '../../../dist/Models/ColumnManager/ColumnManager'
+import ColumnHeadEntity from '../../../dist/Entities/HeadColumn/ColumnHeadEntity'
+import ColumnBodyEntity from '../../../dist/Entities/BodyColumn/ColumnBodyEntity'
+import RenderManagerInterface from '../../../dist/Models/RenderManager/RenderManagerInterface'
 describe('ColumnManager', () => {
+
+  const table = new RenderManagerInterface()
   const columnName = new ColumnHeadEntity('name', 'Name', false, false)
   const columnId = new ColumnHeadEntity('id', '#ID', true, true)
   columnId.setActive(true)
@@ -13,7 +16,7 @@ describe('ColumnManager', () => {
       new ColumnBodyEntity('id', entity.id, entity.id),
     ]
   }
-  const model = new ColumnManager(getBody, [
+  const model = new ColumnManager(table, getBody, [
     columnName,
     columnId
   ])

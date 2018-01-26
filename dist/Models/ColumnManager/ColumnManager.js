@@ -22,16 +22,18 @@ var ColumnManager = function (_ColumnManagerInterfa) {
   _inherits(ColumnManager, _ColumnManagerInterfa);
 
   /**
+   * @param table {RenderManagerInterface}
    * @param getBody {Function}
    * @param headers {ColumnHeadEntityInterface[]}
    */
-  function ColumnManager(getBody, headers) {
+  function ColumnManager(table, getBody, headers) {
     _classCallCheck(this, ColumnManager);
 
     var _this = _possibleConstructorReturn(this, (ColumnManager.__proto__ || Object.getPrototypeOf(ColumnManager)).call(this));
 
     _this._getBody = getBody;
     _this._headers = headers;
+    _this._table = table;
     return _this;
   }
 
@@ -54,6 +56,16 @@ var ColumnManager = function (_ColumnManagerInterfa) {
     key: 'getHeadColumns',
     value: function getHeadColumns() {
       return this._headers;
+    }
+    /**
+     * @param column {ColumnBodyEntityInterface}
+     * @param type {String}
+     */
+
+  }, {
+    key: 'handleChangeHeadColumn',
+    value: function handleChangeHeadColumn(column, type) {
+      this._table.reRenderView();
     }
   }]);
 

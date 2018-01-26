@@ -8,6 +8,11 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
     }
     /**
      * @protected
+     * @type {ColumnManagerInterface}
+     */
+    this.columnManager = null
+    /**
+     * @protected
      */
     this.name = name
     /**
@@ -45,6 +50,7 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
   }
   setHidden(value) {
     this.hidden = value
+    this.handelChange('hidden')
     return this
   }
   isHideable() {
@@ -52,6 +58,7 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
   }
   setHideable(value) {
     this.hiddeable = value
+    this.handelChange('hideable')
     return this
   }
 
@@ -63,6 +70,7 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
   }
   setActive (bool) {
     this.active = bool
+    this.handelChange('active')
     return this
   }
   isReverse () {
@@ -70,6 +78,7 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
   }
   setReverse(bool){
     this.reversed = bool
+    this.handelChange('revers')
     return this
   }
   needSort(){
@@ -77,5 +86,24 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
   }
   setNeedSort(value){
     this.needSord = value
+    this.handelChange('need_sort')
+  }
+
+  /**
+   * @param columnManager {ColumnManagerInterface}
+   * @return {ColumnHeadEntity}
+   */
+  setColumnManager (columnManager) {
+    this.columnManager = columnManager
+    return this
+  }
+  /**
+   * @protected
+   * @param type
+   */
+  handelChange (type) {
+    if (this.columnManager !== null) {
+      this.columnManager.handleChangeHeadColumn(this, type)
+    }
   }
 }

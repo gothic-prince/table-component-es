@@ -1,13 +1,15 @@
-import ColumnManagerInterface from './ColumnManagerInterface';
+import ColumnManagerInterface from './ColumnManagerInterface'
 export default class ColumnManager extends ColumnManagerInterface {
   /**
+   * @param table {RenderManagerInterface}
    * @param getBody {Function}
    * @param headers {ColumnHeadEntityInterface[]}
    */
-  constructor(getBody, headers) {
+  constructor(table, getBody, headers) {
     super()
     this._getBody = getBody
     this._headers = headers
+    this._table = table
   }
 
   /**
@@ -22,5 +24,12 @@ export default class ColumnManager extends ColumnManagerInterface {
    */
   getHeadColumns() {
     return this._headers
+  }
+  /**
+   * @param column {ColumnBodyEntityInterface}
+   * @param type {String}
+   */
+  handleChangeHeadColumn (column, type) {
+    this._table.reRenderView()
   }
 }

@@ -28,6 +28,14 @@ var ColumnManagerInterface = function () {
   }, {
     key: "getHeadColumns",
     value: function getHeadColumns() {}
+    /**
+     * @param column {ColumnHeadEntityInterface}
+     * @param type {String}
+     */
+
+  }, {
+    key: "handleChangeHeadColumn",
+    value: function handleChangeHeadColumn(column, type) {}
   }]);
 
   return ColumnManagerInterface;
