@@ -10,9 +10,4 @@ export default class ColumnHeadEntityInterface {
   setActive (bool) {}
   setReverse(bool){}
   needSort(){}
-  /**
-   * @param columnManager {ColumnManagerInterface}
-   * @return {ColumnHeadEntity}
-   */
-  setColumnManager (columnManager) {}
 }

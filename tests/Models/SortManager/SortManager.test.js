@@ -66,8 +66,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 4', () => {
-      expect(renderTimes).toBe(4)
+    it('should return 1', () => {
+      expect(renderTimes).toBe(1)
     })
   })
   describe('Sorting by ID', () => {
@@ -84,8 +84,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(4)
     })
 
-    it('should return 8', () => {
-      expect(renderTimes).toBe(8)
+    it('should return 2', () => {
+      expect(renderTimes).toBe(2)
     })
   })
 
@@ -102,8 +102,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 12', () => {
-      expect(renderTimes).toBe(12)
+    it('should return 3', () => {
+      expect(renderTimes).toBe(3)
     })
   })
   describe('Sorting by Name', () => {
@@ -120,8 +120,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(2)
     })
 
-    it('should return 16', () => {
-      expect(renderTimes).toBe(16)
+    it('should return 4', () => {
+      expect(renderTimes).toBe(4)
     })
   })
 
@@ -138,8 +138,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 20', () => {
-      expect(renderTimes).toBe(20)
+    it('should return 5', () => {
+      expect(renderTimes).toBe(5)
     })
   })
   describe('Sorting by ID', () => {
@@ -156,8 +156,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 24', () => {
-      expect(renderTimes).toBe(24)
+    it('should return 6', () => {
+      expect(renderTimes).toBe(6)
     })
   })
   describe('Sorting by ID', () => {
@@ -174,8 +174,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(4)
     })
 
-    it('should return 28', () => {
-      expect(renderTimes).toBe(28)
+    it('should return 7', () => {
+      expect(renderTimes).toBe(7)
     })
   })
   describe('Sorting by ID', () => {
@@ -192,8 +192,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 32', () => {
-      expect(renderTimes).toBe(32)
+    it('should return 8', () => {
+      expect(renderTimes).toBe(8)
     })
   })
   describe('Sorting by Name', () => {
@@ -210,8 +210,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(2)
     })
 
-    it('should return 36', () => {
-      expect(renderTimes).toBe(36)
+    it('should return 9', () => {
+      expect(renderTimes).toBe(9)
     })
   })
   describe('Sorting by Name', () => {
@@ -227,8 +227,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 40', () => {
-      expect(renderTimes).toBe(40)
+    it('should return 10', () => {
+      expect(renderTimes).toBe(10)
     })
   })
 
@@ -246,8 +246,8 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
 
-    it('should return 44', () => {
-      expect(renderTimes).toBe(44)
+    it('should return 11', () => {
+      expect(renderTimes).toBe(11)
     })
   })
   describe('Sorting by Name', () => {
@@ -262,8 +262,9 @@ describe('SortManager', () => {
       expect(sort.getSortedEntities(entities)[2].name).toBe('Alex')
       expect(sort.getSortedEntities(entities)[2].id).toBe(1)
     })
-    it('should return 48', () => {
-      expect(renderTimes).toBe(48)
+
+    it('should return 12', () => {
+      expect(renderTimes).toBe(12)
     })
   })
 })
