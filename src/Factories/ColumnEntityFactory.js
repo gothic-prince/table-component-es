@@ -1,6 +1,6 @@
-import ColumnEntityFactoryAbstract from './ColumnEntityFactoryAbstract'
-import ColumnHeadEntity from '../Entities/HeadColumn/ColumnHeadEntity'
-import ColumnBodyEntity from '../Entities/BodyColumn/ColumnBodyEntity'
+import ColumnEntityFactoryAbstract from './ColumnEntityFactoryAbstract';
+import ColumnHeadEntity from '../Entities/HeadColumn/ColumnHeadEntity';
+import ColumnBodyEntity from '../Entities/BodyColumn/ColumnBodyEntity';
 export default class ColumnEntityFactory extends ColumnEntityFactoryAbstract {
   constructor(firstIsMain = true) {
     super(firstIsMain)
