@@ -80,6 +80,7 @@ export default class TableBuilderAbstract extends TableBuilderInterface {
    * @param columnManager {ColumnManagerInterface}
    */
   setColumnManager (columnManager) {
-    return this._columnManager = columnManager
+    this._columnManager = columnManager
+    this._facade.setColumnManager(this._columnManager)
   }
 }

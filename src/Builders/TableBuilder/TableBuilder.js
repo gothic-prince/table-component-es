@@ -5,15 +5,34 @@ import ResetManager from '../../Models/ResetManager/ResetManager'
 import SortManager from '../../Models/SortManager/SortManager'
 import TableBuilderAbstract from './TableBuilderAbstract'
 import {TABLE_BUILD_DEFAULT} from '../../Builders/TableBuilder/constants'
+import ColumnManager from '../../Models/ColumnManager/ColumnManager';
+import ColumnEntityFactory from '../../Factories/ColumnEntityFactory';
 
 export default class TableBuilder extends TableBuilderAbstract {
   /**
    * @param onRender {Function}
    * @param columnManager {ColumnManagerInterface}
    */
-  constructor(onRender, columnManager) {
+  constructor(onRender, columnManager = null) {
     super(onRender)
     this.setColumnManager(columnManager)
+    this._factory = null
+  }
+  /**
+   * @return {ColumnEntityFactoryInterface}
+   */
+  getFactory () {
+    if (this._factory === null) {
+      this._factory = new ColumnEntityFactory()
+    }
+    return this._factory
+  }
+  /**
+   * @param headColumns {ColumnHeadEntityInterface[]}
+   * @param getBodyColumns {Function}
+   */
+  buildColumnManager(headColumns, getBodyColumns) {
+    this.setColumnManager(new ColumnManager(getBodyColumns, headColumns))
   }
   buildChooseManager(type) {
     if (type === TABLE_BUILD_DEFAULT) {

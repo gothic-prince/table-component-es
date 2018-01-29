@@ -130,7 +130,8 @@ var TableBuilderAbstract = function (_TableBuilderInterfac) {
   }, {
     key: 'setColumnManager',
     value: function setColumnManager(columnManager) {
-      return this._columnManager = columnManager;
+      this._columnManager = columnManager;
+      this._facade.setColumnManager(this._columnManager);
     }
   }]);
 

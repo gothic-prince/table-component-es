@@ -1,21 +1,20 @@
 ### Example:
 
 ```javascript
-const columnManager = new ColumnManager((entity) => {
-  return new ColumnEntityFactory()
-    .addBody('id', entity.getID())
-    .addBody('name', entity.getName())
-    .getBodies()
-}, (
-  new ColumnEntityFactory()
-    .addHeader('id',  '#ID')
-    .addHeader('name', 'Name: ')
-    .getHeaders()
-))
-const builder = new TableBuilder(() => {
-    this.render()
-  }, columnManager)
-const table = builder.getTableFacade()
+  const onRender = () => {
+    // ...code ...
+  }
+  const builder = new TableBuilder(onRender)
+  builder.buildColumnManager(
+    builder.getFactory()
+      .addHeader('name')
+      .addHeader('phone')
+      .getHeaders(),
+    (entity) => builder.getFactory()
+      .addBody('name', entity.name)
+      .addBody('phone', entity.phone)
+      .getBodies()
+  )
 
 ```
 ### See more about:

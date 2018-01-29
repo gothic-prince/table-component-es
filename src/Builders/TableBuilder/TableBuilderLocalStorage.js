@@ -2,18 +2,41 @@ import {TABLE_BUILD_STORAGE, TABLE_BUILD_DEFAULT} from '../TableBuilder/constant
 import StorageInterface from 'storage-manager-es/dist/StorageInterface'
 import StorageLocal from 'storage-manager-es/dist/StorageLocal'
 import TableBuilder from './TableBuilder';
-import DensityManagerWithStorage from '../../Models/DensityManager/DensityManagerWithStorage';
+import DensityManagerWithStorage from '../../Models/DensityManager/DensityManagerWithStorage'
+import ColumnEntityStorageFactory from '../../Factories/ColumnEntityStorageFactory'
+import {
+  COLUMN_STORAGE_HIDDEN
+} from '../../Entities/HeadColumn/constants'
 export default class TableBuilderLocalStorage  extends TableBuilder {
   /**
    * @param onRender {Function}
-   * @param columnManager {ColumnManagerInterface}
    * @param tableName {String}
    * @param storage {StorageInterface}
    */
-  constructor(onRender, columnManager, tableName, storage = new StorageLocal()) {
-    super(onRender, columnManager)
+  constructor(onRender, tableName, storage = new StorageLocal()) {
+    super(onRender)
     this.tableName = tableName
     this.storage = storage
+  }
+  /**
+   * @protected
+   * @return {String[]}
+   */
+  getOptions () {
+    return [COLUMN_STORAGE_HIDDEN]
+  }
+  /**
+   * @return {ColumnEntityFactoryInterface}
+   */
+  getFactory () {
+    if (this._factory === null) {
+      this._factory = new ColumnEntityStorageFactory(
+        this.getTableName(),
+        this.getOptions(),
+        this.getStorage()
+      )
+    }
+    return this._factory
   }
   /**
    * @protected

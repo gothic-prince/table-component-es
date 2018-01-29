@@ -32,6 +32,14 @@ var _TableBuilderAbstract3 = _interopRequireDefault(_TableBuilderAbstract2);
 
 var _constants = require('../../Builders/TableBuilder/constants');
 
+var _ColumnManager = require('../../Models/ColumnManager/ColumnManager');
+
+var _ColumnManager2 = _interopRequireDefault(_ColumnManager);
+
+var _ColumnEntityFactory = require('../../Factories/ColumnEntityFactory');
+
+var _ColumnEntityFactory2 = _interopRequireDefault(_ColumnEntityFactory);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -47,16 +55,41 @@ var TableBuilder = function (_TableBuilderAbstract) {
    * @param onRender {Function}
    * @param columnManager {ColumnManagerInterface}
    */
-  function TableBuilder(onRender, columnManager) {
+  function TableBuilder(onRender) {
+    var columnManager = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
     _classCallCheck(this, TableBuilder);
 
     var _this = _possibleConstructorReturn(this, (TableBuilder.__proto__ || Object.getPrototypeOf(TableBuilder)).call(this, onRender));
 
     _this.setColumnManager(columnManager);
+    _this._factory = null;
     return _this;
   }
+  /**
+   * @return {ColumnEntityFactoryInterface}
+   */
+
 
   _createClass(TableBuilder, [{
+    key: 'getFactory',
+    value: function getFactory() {
+      if (this._factory === null) {
+        this._factory = new _ColumnEntityFactory2.default();
+      }
+      return this._factory;
+    }
+    /**
+     * @param headColumns {ColumnHeadEntityInterface[]}
+     * @param getBodyColumns {Function}
+     */
+
+  }, {
+    key: 'buildColumnManager',
+    value: function buildColumnManager(headColumns, getBodyColumns) {
+      this.setColumnManager(new _ColumnManager2.default(getBodyColumns, headColumns));
+    }
+  }, {
     key: 'buildChooseManager',
     value: function buildChooseManager(type) {
       if (type === _constants.TABLE_BUILD_DEFAULT) {

@@ -26,6 +26,12 @@ var _DensityManagerWithStorage = require('../../Models/DensityManager/DensityMan
 
 var _DensityManagerWithStorage2 = _interopRequireDefault(_DensityManagerWithStorage);
 
+var _ColumnEntityStorageFactory = require('../../Factories/ColumnEntityStorageFactory');
+
+var _ColumnEntityStorageFactory2 = _interopRequireDefault(_ColumnEntityStorageFactory);
+
+var _constants2 = require('../../Entities/HeadColumn/constants');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39,16 +45,15 @@ var TableBuilderLocalStorage = function (_TableBuilder) {
 
   /**
    * @param onRender {Function}
-   * @param columnManager {ColumnManagerInterface}
    * @param tableName {String}
    * @param storage {StorageInterface}
    */
-  function TableBuilderLocalStorage(onRender, columnManager, tableName) {
-    var storage = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : new _StorageLocal2.default();
+  function TableBuilderLocalStorage(onRender, tableName) {
+    var storage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : new _StorageLocal2.default();
 
     _classCallCheck(this, TableBuilderLocalStorage);
 
-    var _this = _possibleConstructorReturn(this, (TableBuilderLocalStorage.__proto__ || Object.getPrototypeOf(TableBuilderLocalStorage)).call(this, onRender, columnManager));
+    var _this = _possibleConstructorReturn(this, (TableBuilderLocalStorage.__proto__ || Object.getPrototypeOf(TableBuilderLocalStorage)).call(this, onRender));
 
     _this.tableName = tableName;
     _this.storage = storage;
@@ -56,11 +61,33 @@ var TableBuilderLocalStorage = function (_TableBuilder) {
   }
   /**
    * @protected
-   * @return {StorageInterface}
+   * @return {String[]}
    */
 
 
   _createClass(TableBuilderLocalStorage, [{
+    key: 'getOptions',
+    value: function getOptions() {
+      return [_constants2.COLUMN_STORAGE_HIDDEN];
+    }
+    /**
+     * @return {ColumnEntityFactoryInterface}
+     */
+
+  }, {
+    key: 'getFactory',
+    value: function getFactory() {
+      if (this._factory === null) {
+        this._factory = new _ColumnEntityStorageFactory2.default(this.getTableName(), this.getOptions(), this.getStorage());
+      }
+      return this._factory;
+    }
+    /**
+     * @protected
+     * @return {StorageInterface}
+     */
+
+  }, {
     key: 'getStorage',
     value: function getStorage() {
       return this.storage;
