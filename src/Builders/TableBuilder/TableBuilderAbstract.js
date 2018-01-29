@@ -6,14 +6,13 @@ import {TABLE_BUILD_DEFAULT} from './constants';
 export default class TableBuilderAbstract extends TableBuilderInterface {
   /**
    * @param onRender {Function}
-   * @param columnManager {ColumnManagerInterface}
    */
-  constructor(onRender, columnManager) {
+  constructor(onRender) {
     super()
     /**
      * @protected
      */
-    this._columnManager = columnManager
+    this._columnManager = null
     /**
      * @protected
      */
@@ -22,17 +21,28 @@ export default class TableBuilderAbstract extends TableBuilderInterface {
      * @protected
      */
     this._facade = this.createFacade()
-    this.buildSortManager(TABLE_BUILD_DEFAULT)
-    this.buildResetManager(TABLE_BUILD_DEFAULT)
-    this.buildPaginationManager(TABLE_BUILD_DEFAULT)
-    this.buildDensityManager(TABLE_BUILD_DEFAULT)
-    this.buildChooseManager(TABLE_BUILD_DEFAULT)
   }
   /**
    * @return {TableFacadeAbstract}
    */
   getTableFacade () {
-    return this.getFacade()
+    const facade = this.getFacade()
+    if (facade.getDensityManager() === null) {
+      this.buildDensityManager(TABLE_BUILD_DEFAULT)
+    }
+    if (facade.getPaginationManager() === null) {
+      this.buildPaginationManager(TABLE_BUILD_DEFAULT)
+    }
+    if (facade.getSortManager() === null) {
+      this.buildSortManager(TABLE_BUILD_DEFAULT)
+    }
+    if (facade.getResetManager() === null) {
+      this.buildResetManager(TABLE_BUILD_DEFAULT)
+    }
+    if (facade.getDataSelectorManager() === null) {
+      this.buildChooseManager(TABLE_BUILD_DEFAULT)
+    }
+    return facade
   }
   /**
    * @protected
@@ -64,5 +74,12 @@ export default class TableBuilderAbstract extends TableBuilderInterface {
    */
   getColumnManager () {
     return this._columnManager
+  }
+  /**
+   * @protected
+   * @param columnManager {ColumnManagerInterface}
+   */
+  setColumnManager (columnManager) {
+    return this._columnManager = columnManager
   }
 }

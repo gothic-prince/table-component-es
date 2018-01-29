@@ -33,9 +33,8 @@ var TableBuilderAbstract = function (_TableBuilderInterfac) {
 
   /**
    * @param onRender {Function}
-   * @param columnManager {ColumnManagerInterface}
    */
-  function TableBuilderAbstract(onRender, columnManager) {
+  function TableBuilderAbstract(onRender) {
     _classCallCheck(this, TableBuilderAbstract);
 
     /**
@@ -43,7 +42,7 @@ var TableBuilderAbstract = function (_TableBuilderInterfac) {
      */
     var _this = _possibleConstructorReturn(this, (TableBuilderAbstract.__proto__ || Object.getPrototypeOf(TableBuilderAbstract)).call(this));
 
-    _this._columnManager = columnManager;
+    _this._columnManager = null;
     /**
      * @protected
      */
@@ -52,11 +51,6 @@ var TableBuilderAbstract = function (_TableBuilderInterfac) {
      * @protected
      */
     _this._facade = _this.createFacade();
-    _this.buildSortManager(_constants.TABLE_BUILD_DEFAULT);
-    _this.buildResetManager(_constants.TABLE_BUILD_DEFAULT);
-    _this.buildPaginationManager(_constants.TABLE_BUILD_DEFAULT);
-    _this.buildDensityManager(_constants.TABLE_BUILD_DEFAULT);
-    _this.buildChooseManager(_constants.TABLE_BUILD_DEFAULT);
     return _this;
   }
   /**
@@ -67,7 +61,23 @@ var TableBuilderAbstract = function (_TableBuilderInterfac) {
   _createClass(TableBuilderAbstract, [{
     key: 'getTableFacade',
     value: function getTableFacade() {
-      return this.getFacade();
+      var facade = this.getFacade();
+      if (facade.getDensityManager() === null) {
+        this.buildDensityManager(_constants.TABLE_BUILD_DEFAULT);
+      }
+      if (facade.getPaginationManager() === null) {
+        this.buildPaginationManager(_constants.TABLE_BUILD_DEFAULT);
+      }
+      if (facade.getSortManager() === null) {
+        this.buildSortManager(_constants.TABLE_BUILD_DEFAULT);
+      }
+      if (facade.getResetManager() === null) {
+        this.buildResetManager(_constants.TABLE_BUILD_DEFAULT);
+      }
+      if (facade.getDataSelectorManager() === null) {
+        this.buildChooseManager(_constants.TABLE_BUILD_DEFAULT);
+      }
+      return facade;
     }
     /**
      * @protected
@@ -111,6 +121,16 @@ var TableBuilderAbstract = function (_TableBuilderInterfac) {
     key: 'getColumnManager',
     value: function getColumnManager() {
       return this._columnManager;
+    }
+    /**
+     * @protected
+     * @param columnManager {ColumnManagerInterface}
+     */
+
+  }, {
+    key: 'setColumnManager',
+    value: function setColumnManager(columnManager) {
+      return this._columnManager = columnManager;
     }
   }]);
 

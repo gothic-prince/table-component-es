@@ -50,7 +50,10 @@ var TableBuilder = function (_TableBuilderAbstract) {
   function TableBuilder(onRender, columnManager) {
     _classCallCheck(this, TableBuilder);
 
-    return _possibleConstructorReturn(this, (TableBuilder.__proto__ || Object.getPrototypeOf(TableBuilder)).call(this, onRender, columnManager));
+    var _this = _possibleConstructorReturn(this, (TableBuilder.__proto__ || Object.getPrototypeOf(TableBuilder)).call(this, onRender));
+
+    _this.setColumnManager(columnManager);
+    return _this;
   }
 
   _createClass(TableBuilder, [{

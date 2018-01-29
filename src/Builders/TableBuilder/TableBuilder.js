@@ -12,7 +12,8 @@ export default class TableBuilder extends TableBuilderAbstract {
    * @param columnManager {ColumnManagerInterface}
    */
   constructor(onRender, columnManager) {
-    super(onRender, columnManager)
+    super(onRender)
+    this.setColumnManager(columnManager)
   }
   buildChooseManager(type) {
     if (type === TABLE_BUILD_DEFAULT) {
