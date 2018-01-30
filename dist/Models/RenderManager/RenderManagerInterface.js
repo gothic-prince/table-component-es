@@ -16,6 +16,9 @@ var RenderManagerInterface = function () {
   _createClass(RenderManagerInterface, [{
     key: "reRenderView",
     value: function reRenderView() {}
+  }, {
+    key: "addEvent",
+    value: function addEvent(onRender) {}
   }]);
 
   return RenderManagerInterface;

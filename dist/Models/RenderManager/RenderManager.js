@@ -24,19 +24,35 @@ var RenderManager = function (_RenderManagerInterfa) {
   /**
    * @param onRender {Function}
    */
-  function RenderManager(onRender) {
+  function RenderManager() {
+    var onRender = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
     _classCallCheck(this, RenderManager);
 
+    /**
+     * @type {Function[]}
+     * @private
+     */
     var _this = _possibleConstructorReturn(this, (RenderManager.__proto__ || Object.getPrototypeOf(RenderManager)).call(this));
 
-    _this._onRender = onRender;
+    _this._events = [];
+    if (onRender !== null) {
+      _this.addEvent(onRender);
+    }
     return _this;
   }
 
   _createClass(RenderManager, [{
     key: 'reRenderView',
     value: function reRenderView() {
-      this._onRender();
+      this._events.map(function (event) {
+        event();
+      });
+    }
+  }, {
+    key: 'addEvent',
+    value: function addEvent(onRender) {
+      this._events.push(onRender);
     }
   }]);
 

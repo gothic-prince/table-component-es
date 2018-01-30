@@ -13,7 +13,7 @@ export default class TableBuilder extends TableBuilderAbstract {
    * @param onRender {Function}
    * @param columnManager {ColumnManagerInterface}
    */
-  constructor(onRender, columnManager = null) {
+  constructor(onRender = null, columnManager = null) {
     super(onRender)
     this.setColumnManager(columnManager)
     this._factory = null

@@ -55,7 +55,8 @@ var TableBuilder = function (_TableBuilderAbstract) {
    * @param onRender {Function}
    * @param columnManager {ColumnManagerInterface}
    */
-  function TableBuilder(onRender) {
+  function TableBuilder() {
+    var onRender = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
     var columnManager = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
     _classCallCheck(this, TableBuilder);

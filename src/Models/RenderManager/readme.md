@@ -10,6 +10,7 @@ table.getRenderManager().reRenderView()
 | Name | Params | Return |
 | --- | --- | --- |
 | reRenderView |  |  |
+| addEvent | Function |  |
 
 
 ![UML](./RenderManager.png)
