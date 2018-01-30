@@ -22,26 +22,41 @@ export default class TableBuilderAbstract extends TableBuilderInterface {
      */
     this._facade = this.createFacade()
   }
+  buildDefaultDensity (facade) {
+    if (facade.getDensityManager() === null) {
+      this.buildDensityManager(TABLE_BUILD_DEFAULT)
+    }
+  }
+  buildDefaultPaginationManager (facade) {
+    if (facade.getPaginationManager() === null) {
+      this.buildPaginationManager(TABLE_BUILD_DEFAULT)
+    }
+  }
+  buildDefaultSortManager (facade) {
+    if (facade.getSortManager() === null) {
+      this.buildSortManager(TABLE_BUILD_DEFAULT)
+    }
+  }
+  buildDefaultResetManager (facade) {
+    if (facade.getResetManager() === null) {
+      this.buildResetManager(TABLE_BUILD_DEFAULT)
+    }
+  }
+  buildDefaultDataSelectorManager (facade) {
+    if (facade.getDataSelectorManager() === null) {
+      this.buildChooseManager(TABLE_BUILD_DEFAULT)
+    }
+  }
   /**
    * @return {TableFacadeAbstract}
    */
   getTableFacade () {
     const facade = this.getFacade()
-    if (facade.getDensityManager() === null) {
-      this.buildDensityManager(TABLE_BUILD_DEFAULT)
-    }
-    if (facade.getPaginationManager() === null) {
-      this.buildPaginationManager(TABLE_BUILD_DEFAULT)
-    }
-    if (facade.getSortManager() === null) {
-      this.buildSortManager(TABLE_BUILD_DEFAULT)
-    }
-    if (facade.getResetManager() === null) {
-      this.buildResetManager(TABLE_BUILD_DEFAULT)
-    }
-    if (facade.getDataSelectorManager() === null) {
-      this.buildChooseManager(TABLE_BUILD_DEFAULT)
-    }
+    this.buildDefaultDensity(facade)
+    this.buildDefaultPaginationManager(facade)
+    this.buildDefaultDataSelectorManager(facade)
+    this.buildDefaultResetManager(facade)
+    this.buildDefaultSortManager(facade)
     return facade
   }
   /**

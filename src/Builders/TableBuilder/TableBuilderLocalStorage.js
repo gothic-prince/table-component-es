@@ -64,4 +64,9 @@ export default class TableBuilderLocalStorage  extends TableBuilder {
         break
     }
   }
+  buildDefaultDensity(facade) {
+    if (facade.getDensityManager() === null) {
+      this.buildDensityManager(TABLE_BUILD_STORAGE)
+    }
+  }
 }

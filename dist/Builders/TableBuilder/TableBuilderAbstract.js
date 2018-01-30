@@ -53,30 +53,55 @@ var TableBuilderAbstract = function (_TableBuilderInterfac) {
     _this._facade = _this.createFacade();
     return _this;
   }
-  /**
-   * @return {TableFacadeAbstract}
-   */
-
 
   _createClass(TableBuilderAbstract, [{
-    key: 'getTableFacade',
-    value: function getTableFacade() {
-      var facade = this.getFacade();
+    key: 'buildDefaultDensity',
+    value: function buildDefaultDensity(facade) {
       if (facade.getDensityManager() === null) {
         this.buildDensityManager(_constants.TABLE_BUILD_DEFAULT);
       }
+    }
+  }, {
+    key: 'buildDefaultPaginationManager',
+    value: function buildDefaultPaginationManager(facade) {
       if (facade.getPaginationManager() === null) {
         this.buildPaginationManager(_constants.TABLE_BUILD_DEFAULT);
       }
+    }
+  }, {
+    key: 'buildDefaultSortManager',
+    value: function buildDefaultSortManager(facade) {
       if (facade.getSortManager() === null) {
         this.buildSortManager(_constants.TABLE_BUILD_DEFAULT);
       }
+    }
+  }, {
+    key: 'buildDefaultResetManager',
+    value: function buildDefaultResetManager(facade) {
       if (facade.getResetManager() === null) {
         this.buildResetManager(_constants.TABLE_BUILD_DEFAULT);
       }
+    }
+  }, {
+    key: 'buildDefaultDataSelectorManager',
+    value: function buildDefaultDataSelectorManager(facade) {
       if (facade.getDataSelectorManager() === null) {
         this.buildChooseManager(_constants.TABLE_BUILD_DEFAULT);
       }
+    }
+    /**
+     * @return {TableFacadeAbstract}
+     */
+
+  }, {
+    key: 'getTableFacade',
+    value: function getTableFacade() {
+      var facade = this.getFacade();
+      this.buildDefaultDensity(facade);
+      this.buildDefaultPaginationManager(facade);
+      this.buildDefaultDataSelectorManager(facade);
+      this.buildDefaultResetManager(facade);
+      this.buildDefaultSortManager(facade);
       return facade;
     }
     /**

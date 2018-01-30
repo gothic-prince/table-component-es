@@ -114,6 +114,13 @@ var TableBuilderLocalStorage = function (_TableBuilder) {
           break;
       }
     }
+  }, {
+    key: 'buildDefaultDensity',
+    value: function buildDefaultDensity(facade) {
+      if (facade.getDensityManager() === null) {
+        this.buildDensityManager(_constants.TABLE_BUILD_STORAGE);
+      }
+    }
   }]);
 
   return TableBuilderLocalStorage;
