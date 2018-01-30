@@ -16,9 +16,9 @@ describe('ColumnHeadStorageEntity', () => {
     it('should return false', () => {
       expect(entity.isHidden()).toBe(false)
     })
-    it('should return true', () => {
-      entity.setHidden(true)
-      expect(storage.getData(entity.getKeyName(COLUMN_STORAGE_HIDDEN))).toBe(true)
+    it('should return "true"', () => {
+      entity.setHidden('true')
+      expect(storage.getData(entity.getKeyName(COLUMN_STORAGE_HIDDEN))).toBe('true')
     })
     it('should return true', () => {
       expect(entity.isHidden()).toBe(true)

@@ -1,6 +1,7 @@
 import StorageLocal from 'storage-manager-es/dist/StorageLocal'
 import StorageInterface from 'storage-manager-es/dist/StorageInterface'
-import ColumnHeadEntity from './ColumnHeadEntity';
+import ColumnHeadEntity from './ColumnHeadEntity'
+import boolean from 'boolean'
 import {
   COLUMN_STORAGE_ACTIVE as ACTIVE,
   COLUMN_STORAGE_HIDDEN as HIDDEN,
@@ -19,7 +20,7 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
   isHidden() {
     if (this.isFromStorage(HIDDEN)) {
       if (this.getStorage().hasKey(this.getKeyName(HIDDEN))) {
-        return this.getStorage().getData(this.getKeyName(HIDDEN))
+        return boolean(this.getStorage().getData(this.getKeyName(HIDDEN)))
       }
     }
     return this.hidden
@@ -27,7 +28,7 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
   isHideable() {
     if (this.isFromStorage(HIDEABLE)) {
       if (this.getStorage().hasKey(this.getKeyName(HIDEABLE))) {
-        return this.getStorage().getData(this.getKeyName(HIDEABLE))
+        return boolean(this.getStorage().getData(this.getKeyName(HIDEABLE)))
       }
     }
     return this.hiddeable
@@ -38,7 +39,7 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
   isActive () {
     if (this.isFromStorage(ACTIVE)) {
       if (this.getStorage().hasKey(this.getKeyName(ACTIVE))) {
-        return this.getStorage().getData(this.getKeyName(ACTIVE))
+        return boolean(this.getStorage().getData(this.getKeyName(ACTIVE)))
       }
     }
     return this.active
@@ -46,7 +47,7 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
   isReverse () {
     if (this.isFromStorage(REVERSE)) {
       if (this.getStorage().hasKey(this.getKeyName(REVERSE))) {
-        return this.getStorage().getData(this.getKeyName(REVERSE))
+        return boolean(this.getStorage().getData(this.getKeyName(REVERSE)))
       }
 
     }
@@ -55,7 +56,7 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
   needSort(){
     if (this.isFromStorage(SORT)) {
       if (this.getStorage().hasKey(this.getKeyName(SORT))) {
-        return this.getStorage().getData(this.getKeyName(SORT))
+        return boolean(this.getStorage().getData(this.getKeyName(SORT)))
       }
     }
     return this.needSord
