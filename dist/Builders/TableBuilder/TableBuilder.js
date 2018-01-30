@@ -81,14 +81,14 @@ var TableBuilder = function (_TableBuilderAbstract) {
       return this._factory;
     }
     /**
-     * @param headColumns {ColumnHeadEntityInterface[]}
-     * @param getBodyColumns {Function}
+     * @param headColumnsFactory {Function|ColumnHeadEntityInterface[]}
+     * @param bodyColumnsFactory {Function}
      */
 
   }, {
     key: 'buildColumnManager',
-    value: function buildColumnManager(headColumns, getBodyColumns) {
-      this.setColumnManager(new _ColumnManager2.default(getBodyColumns, headColumns));
+    value: function buildColumnManager(headColumnsFactory, bodyColumnsFactory) {
+      this.setColumnManager(new _ColumnManager2.default(bodyColumnsFactory, Array.isArray(headColumnsFactory) ? headColumnsFactory : headColumnsFactory()));
     }
   }, {
     key: 'buildChooseManager',

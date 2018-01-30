@@ -28,11 +28,16 @@ export default class TableBuilder extends TableBuilderAbstract {
     return this._factory
   }
   /**
-   * @param headColumns {ColumnHeadEntityInterface[]}
-   * @param getBodyColumns {Function}
+   * @param headColumnsFactory {Function|ColumnHeadEntityInterface[]}
+   * @param bodyColumnsFactory {Function}
    */
-  buildColumnManager(headColumns, getBodyColumns) {
-    this.setColumnManager(new ColumnManager(getBodyColumns, headColumns))
+  buildColumnManager(headColumnsFactory, bodyColumnsFactory) {
+    this.setColumnManager(
+      new ColumnManager(
+        bodyColumnsFactory,
+        (Array.isArray(headColumnsFactory) ? headColumnsFactory : headColumnsFactory())
+      )
+    )
   }
   buildChooseManager(type) {
     if (type === TABLE_BUILD_DEFAULT) {

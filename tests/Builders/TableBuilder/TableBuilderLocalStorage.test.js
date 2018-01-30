@@ -10,7 +10,7 @@ describe('TableBuilderLocalStorage', () => {
   }, 'TestTable', storage)
 
   builder.buildColumnManager(
-    builder.getFactory()
+    () => builder.getFactory()
       .addHeader('name')
       .addHeader('phone')
       .getHeaders(),

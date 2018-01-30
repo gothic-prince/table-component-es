@@ -13,26 +13,22 @@ Package [`ui-package--table-component-react`](https://www.npmjs.com/package/ui-p
 ### Example:
 
 ```javascript
-const onRender = () => {
-// ...code ...
-}
-const builder = new TableBuilder(onRender)
-const headColumns = (
+const builder = new TableBuilder()
+const headColumnsFactory = () => (
   builder
     .getFactory()
     .addHeader('name')
     .addHeader('phone')
     .getHeaders()
 )
-const bodyColumnsFactory = (entity) => {
-  return (
-    builder.getFactory()
-      .addBody('name', entity.name)
-      .addBody('phone', entity.phone)
-      .getBodies()
-  )
-}
-builder.buildColumnManager(headColumns, bodyColumnsFactory)
+const bodyColumnsFactory = (entity) => (
+  builder
+    .getFactory()
+    .addBody('name', entity.name)
+    .addBody('phone', entity.phone)
+    .getBodies()
+)
+builder.buildColumnManager(headColumnsFactory, bodyColumnsFactory)
 const table = builder.getTableFacade()
 table.getSortManager().by('name') // DESC
 table.getSortManager().by('name') // ASC
