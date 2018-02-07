@@ -35,6 +35,13 @@ describe('ColumnHeadEntity', () => {
     it('reversed should be true', () => {
       expect(entity.setReverse(true).isReverse()).toBe(true)
     })
+    it('width should be null', () => {
+      expect(entity.getWidth()).toBe(null)
+    })
+    it('width should be 150', () => {
+      entity.setWidth(150)
+      expect(entity.getWidth()).toBe(150)
+    })
   })
   describe('3 params', () => {
     const entity = new ColumnHeadEntity('id', '#ID', true)
@@ -50,6 +57,9 @@ describe('ColumnHeadEntity', () => {
     it('hidden should be false', () => {
       expect(entity.setHidden(false).isHidden()).toBe(false)
     })
+    it('width should be null', () => {
+      expect(entity.getWidth()).toBe(null)
+    })
   })
   describe('2 params', () => {
     const entity = new ColumnHeadEntity('id', '#ID')
@@ -58,6 +68,9 @@ describe('ColumnHeadEntity', () => {
     })
     it('label should be "#ID"', () => {
       expect(entity.getLabel()).toBe("#ID")
+    })
+    it('width should be null', () => {
+      expect(entity.getWidth()).toBe(null)
     })
   })
   describe('0 params', () => {

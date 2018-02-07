@@ -1,9 +1,17 @@
-import ColumnEntityStorageFactory, { SORT, REVERSE, ACTIVE, HIDDEN, HIDEABLE} from '../../dist/Factories/ColumnEntityStorageFactory'
+import ColumnEntityStorageFactory,
+  {
+    SORT,
+    REVERSE,
+    ACTIVE,
+    HIDDEN,
+    HIDEABLE,
+    WIDTH
+  } from '../../dist/Factories/ColumnEntityStorageFactory'
 import StorageMock from 'storage-manager-es/dist/StorageMock'
 describe('ColumnEntityStorageFactory', () => {
   const TABLE_NAME = 'testTable'
   const storage = new StorageMock()
-  const factory = new ColumnEntityStorageFactory(TABLE_NAME, [HIDDEN, ACTIVE], storage)
+  const factory = new ColumnEntityStorageFactory(TABLE_NAME, [HIDDEN, ACTIVE, WIDTH], storage)
   describe('Hidden and active', () => {
     const columns = factory.addHeader('name').getHeaders()
     const entity = columns[0]
@@ -22,7 +30,16 @@ describe('ColumnEntityStorageFactory', () => {
     it('should return false', () => {
       expect(entity.isHidden()).toBe(false)
     })
-
+    it('should return null', () => {
+      expect(entity.getWidth()).toBe(null)
+    })
+    it('should return 100', () => {
+      entity.setWidth(100)
+      expect(entity.getWidth()).toBe(100)
+    })
+    it('should return 100', () => {
+      expect(storage.getData(entity.getKeyName(WIDTH))).toBe(100)
+    })
     it('should return null', () => {
       entity.setHideable(false)
       expect(storage.getData(entity.getKeyName(HIDEABLE))).toBe(null)

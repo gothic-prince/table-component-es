@@ -65,6 +65,10 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
      * @protected
      */
     _this.needSord = true;
+    /**
+     * @protected
+     */
+    _this.width = null;
     return _this;
   }
 
@@ -131,6 +135,16 @@ var ColumnHeadEntity = function (_ColumnHeadEntityInte) {
     key: 'setNeedSort',
     value: function setNeedSort(value) {
       this.needSord = value;
+    }
+  }, {
+    key: 'setWidth',
+    value: function setWidth(value) {
+      this.width = value;
+    }
+  }, {
+    key: 'getWidth',
+    value: function getWidth() {
+      return this.width;
     }
   }]);
 

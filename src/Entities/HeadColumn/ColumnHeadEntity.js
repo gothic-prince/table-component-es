@@ -35,6 +35,10 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
      * @protected
      */
     this.needSord = true
+    /**
+     * @protected
+     */
+    this.width = null
   }
 
   getLabel () {
@@ -77,5 +81,11 @@ export default class ColumnHeadEntity extends ColumnHeadEntityInterface {
   }
   setNeedSort(value){
     this.needSord = value
+  }
+  setWidth(value) {
+    this.width = value
+  }
+  getWidth() {
+    return this.width
   }
 }

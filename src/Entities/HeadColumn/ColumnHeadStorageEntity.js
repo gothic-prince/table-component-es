@@ -7,7 +7,8 @@ import {
   COLUMN_STORAGE_HIDDEN as HIDDEN,
   COLUMN_STORAGE_HIDEABLE as HIDEABLE,
   COLUMN_STORAGE_NEED_SORT as SORT,
-  COLUMN_STORAGE_REVERSE as REVERSE
+  COLUMN_STORAGE_REVERSE as REVERSE,
+  COLUMN_STORAGE_WIDTH as WIDTH,
 } from './constants';
 export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
   constructor(name, label, hidden = false, hiddeable = true) {
@@ -18,18 +19,14 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
     return this.label || this.name
   }
   isHidden() {
-    if (this.isFromStorage(HIDDEN)) {
-      if (this.getStorage().hasKey(this.getKeyName(HIDDEN))) {
-        return boolean(this.getStorage().getData(this.getKeyName(HIDDEN)))
-      }
+    if (this.getDataFromStorage(HIDDEN) !== null) {
+      return boolean(this.getDataFromStorage(HIDDEN))
     }
     return this.hidden
   }
   isHideable() {
-    if (this.isFromStorage(HIDEABLE)) {
-      if (this.getStorage().hasKey(this.getKeyName(HIDEABLE))) {
-        return boolean(this.getStorage().getData(this.getKeyName(HIDEABLE)))
-      }
+    if (this.getDataFromStorage(HIDEABLE) !== null) {
+      return boolean(this.getDataFromStorage(HIDEABLE))
     }
     return this.hiddeable
   }
@@ -37,29 +34,29 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
     return this.name
   }
   isActive () {
-    if (this.isFromStorage(ACTIVE)) {
-      if (this.getStorage().hasKey(this.getKeyName(ACTIVE))) {
-        return boolean(this.getStorage().getData(this.getKeyName(ACTIVE)))
-      }
+    if (this.getDataFromStorage(ACTIVE) !== null) {
+      return boolean(this.getDataFromStorage(ACTIVE))
     }
     return this.active
   }
   isReverse () {
-    if (this.isFromStorage(REVERSE)) {
-      if (this.getStorage().hasKey(this.getKeyName(REVERSE))) {
-        return boolean(this.getStorage().getData(this.getKeyName(REVERSE)))
-      }
-
+    if (this.getDataFromStorage(REVERSE) !== null) {
+      return boolean(this.getDataFromStorage(REVERSE))
     }
     return this.reversed
   }
   needSort(){
-    if (this.isFromStorage(SORT)) {
-      if (this.getStorage().hasKey(this.getKeyName(SORT))) {
-        return boolean(this.getStorage().getData(this.getKeyName(SORT)))
-      }
+    if (this.getDataFromStorage(SORT) !== null) {
+      return boolean(this.getDataFromStorage(SORT))
     }
     return this.needSord
+  }
+
+  getWidth() {
+    if (this.getDataFromStorage(WIDTH) !== null) {
+      return Number(this.getDataFromStorage(WIDTH))
+    }
+    return this.width
   }
 
   setActive (bool) {
@@ -102,6 +99,14 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
     }
   }
 
+  setWidth(value) {
+    if (this.isFromStorage(WIDTH)) {
+      this.getStorage().setData(this.getKeyName(WIDTH), value)
+    } else {
+      super.setWidth(value)
+    }
+  }
+
   /**
    * @param type
    * @return {string}
@@ -134,5 +139,19 @@ export default class ColumnHeadStorageEntity extends ColumnHeadEntity {
    */
   getStorage () {
     return this.storage
+  }
+
+  /**
+   * @protected
+   * @param type
+   * @return {String}
+   */
+  getDataFromStorage (type) {
+    if (this.isFromStorage(type)) {
+      if (this.getStorage().hasKey(this.getKeyName(type))) {
+        return this.getStorage().getData(this.getKeyName(type))
+      }
+    }
+    return null
   }
 }

@@ -9,6 +9,7 @@ import {
   COLUMN_STORAGE_HIDEABLE,
   COLUMN_STORAGE_REVERSE,
   COLUMN_STORAGE_ACTIVE,
+  COLUMN_STORAGE_WIDTH
 } from '../Entities/HeadColumn/constants'
 
 export const SORT = COLUMN_STORAGE_NEED_SORT
@@ -16,6 +17,7 @@ export const HIDDEN = COLUMN_STORAGE_HIDDEN
 export const HIDEABLE = COLUMN_STORAGE_HIDEABLE
 export const REVERSE = COLUMN_STORAGE_REVERSE
 export const ACTIVE = COLUMN_STORAGE_ACTIVE
+export const WIDTH = COLUMN_STORAGE_WIDTH
 
 export default class ColumnEntityStorageFactory extends ColumnEntityFactoryAbstract {
   /**

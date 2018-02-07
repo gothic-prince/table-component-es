@@ -57,20 +57,16 @@ var ColumnHeadStorageEntity = function (_ColumnHeadEntity) {
   }, {
     key: 'isHidden',
     value: function isHidden() {
-      if (this.isFromStorage(_constants.COLUMN_STORAGE_HIDDEN)) {
-        if (this.getStorage().hasKey(this.getKeyName(_constants.COLUMN_STORAGE_HIDDEN))) {
-          return (0, _boolean2.default)(this.getStorage().getData(this.getKeyName(_constants.COLUMN_STORAGE_HIDDEN)));
-        }
+      if (this.getDataFromStorage(_constants.COLUMN_STORAGE_HIDDEN) !== null) {
+        return (0, _boolean2.default)(this.getDataFromStorage(_constants.COLUMN_STORAGE_HIDDEN));
       }
       return this.hidden;
     }
   }, {
     key: 'isHideable',
     value: function isHideable() {
-      if (this.isFromStorage(_constants.COLUMN_STORAGE_HIDEABLE)) {
-        if (this.getStorage().hasKey(this.getKeyName(_constants.COLUMN_STORAGE_HIDEABLE))) {
-          return (0, _boolean2.default)(this.getStorage().getData(this.getKeyName(_constants.COLUMN_STORAGE_HIDEABLE)));
-        }
+      if (this.getDataFromStorage(_constants.COLUMN_STORAGE_HIDEABLE) !== null) {
+        return (0, _boolean2.default)(this.getDataFromStorage(_constants.COLUMN_STORAGE_HIDEABLE));
       }
       return this.hiddeable;
     }
@@ -82,32 +78,34 @@ var ColumnHeadStorageEntity = function (_ColumnHeadEntity) {
   }, {
     key: 'isActive',
     value: function isActive() {
-      if (this.isFromStorage(_constants.COLUMN_STORAGE_ACTIVE)) {
-        if (this.getStorage().hasKey(this.getKeyName(_constants.COLUMN_STORAGE_ACTIVE))) {
-          return (0, _boolean2.default)(this.getStorage().getData(this.getKeyName(_constants.COLUMN_STORAGE_ACTIVE)));
-        }
+      if (this.getDataFromStorage(_constants.COLUMN_STORAGE_ACTIVE) !== null) {
+        return (0, _boolean2.default)(this.getDataFromStorage(_constants.COLUMN_STORAGE_ACTIVE));
       }
       return this.active;
     }
   }, {
     key: 'isReverse',
     value: function isReverse() {
-      if (this.isFromStorage(_constants.COLUMN_STORAGE_REVERSE)) {
-        if (this.getStorage().hasKey(this.getKeyName(_constants.COLUMN_STORAGE_REVERSE))) {
-          return (0, _boolean2.default)(this.getStorage().getData(this.getKeyName(_constants.COLUMN_STORAGE_REVERSE)));
-        }
+      if (this.getDataFromStorage(_constants.COLUMN_STORAGE_REVERSE) !== null) {
+        return (0, _boolean2.default)(this.getDataFromStorage(_constants.COLUMN_STORAGE_REVERSE));
       }
       return this.reversed;
     }
   }, {
     key: 'needSort',
     value: function needSort() {
-      if (this.isFromStorage(_constants.COLUMN_STORAGE_NEED_SORT)) {
-        if (this.getStorage().hasKey(this.getKeyName(_constants.COLUMN_STORAGE_NEED_SORT))) {
-          return (0, _boolean2.default)(this.getStorage().getData(this.getKeyName(_constants.COLUMN_STORAGE_NEED_SORT)));
-        }
+      if (this.getDataFromStorage(_constants.COLUMN_STORAGE_NEED_SORT) !== null) {
+        return (0, _boolean2.default)(this.getDataFromStorage(_constants.COLUMN_STORAGE_NEED_SORT));
       }
       return this.needSord;
+    }
+  }, {
+    key: 'getWidth',
+    value: function getWidth() {
+      if (this.getDataFromStorage(_constants.COLUMN_STORAGE_WIDTH) !== null) {
+        return Number(this.getDataFromStorage(_constants.COLUMN_STORAGE_WIDTH));
+      }
+      return this.width;
     }
   }, {
     key: 'setActive',
@@ -158,6 +156,15 @@ var ColumnHeadStorageEntity = function (_ColumnHeadEntity) {
         _get(ColumnHeadStorageEntity.prototype.__proto__ || Object.getPrototypeOf(ColumnHeadStorageEntity.prototype), 'setNeedSort', this).call(this, value);
       }
     }
+  }, {
+    key: 'setWidth',
+    value: function setWidth(value) {
+      if (this.isFromStorage(_constants.COLUMN_STORAGE_WIDTH)) {
+        this.getStorage().setData(this.getKeyName(_constants.COLUMN_STORAGE_WIDTH), value);
+      } else {
+        _get(ColumnHeadStorageEntity.prototype.__proto__ || Object.getPrototypeOf(ColumnHeadStorageEntity.prototype), 'setWidth', this).call(this, value);
+      }
+    }
 
     /**
      * @param type
@@ -205,6 +212,23 @@ var ColumnHeadStorageEntity = function (_ColumnHeadEntity) {
     key: 'getStorage',
     value: function getStorage() {
       return this.storage;
+    }
+
+    /**
+     * @protected
+     * @param type
+     * @return {String}
+     */
+
+  }, {
+    key: 'getDataFromStorage',
+    value: function getDataFromStorage(type) {
+      if (this.isFromStorage(type)) {
+        if (this.getStorage().hasKey(this.getKeyName(type))) {
+          return this.getStorage().getData(this.getKeyName(type));
+        }
+      }
+      return null;
     }
   }]);
 

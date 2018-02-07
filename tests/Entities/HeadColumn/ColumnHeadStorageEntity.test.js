@@ -4,6 +4,7 @@ import {
   COLUMN_STORAGE_HIDEABLE,
   COLUMN_STORAGE_ACTIVE,
   COLUMN_STORAGE_NEED_SORT,
+  COLUMN_STORAGE_WIDTH
 } from '../../../dist/Entities/HeadColumn/constants'
 import StorageMock from 'storage-manager-es/dist/StorageMock'
 describe('ColumnHeadStorageEntity', () => {
@@ -11,7 +12,7 @@ describe('ColumnHeadStorageEntity', () => {
   describe('Storage: Only hidden', () => {
     const storage = new StorageMock()
     const entity = new ColumnHeadStorageEntity('name')
-    entity.setStorage(TABLE_NAME, [COLUMN_STORAGE_HIDDEN], storage)
+    entity.setStorage(TABLE_NAME, [COLUMN_STORAGE_HIDDEN, COLUMN_STORAGE_WIDTH], storage)
 
     it('should return false', () => {
       expect(entity.isHidden()).toBe(false)
@@ -77,6 +78,19 @@ describe('ColumnHeadStorageEntity', () => {
     })
     it('should return true', () => {
       expect(entity.needSort()).toBe(true)
+    })
+    it('should return null', () => {
+      expect(entity.getWidth()).toBe(null)
+    })
+    it('should return null', () => {
+      expect(storage.getData(entity.getKeyName(COLUMN_STORAGE_WIDTH))).toBe(null)
+    })
+    it('should return 300', () => {
+      entity.setWidth("300")
+      expect(entity.getWidth()).toBe(300)
+    })
+    it('should return "300"', () => {
+      expect(storage.getData(entity.getKeyName(COLUMN_STORAGE_WIDTH))).toBe("300")
     })
   })
 })

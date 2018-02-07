@@ -22,6 +22,9 @@ describe('ColumnEntityFactory', () => {
       it('should be sortable', () => {
         expect(columns[0].needSort()).toBe(true)
       })
+      it('should return null', () => {
+        expect(columns[0].getWidth()).toBe(null)
+      })
     })
     describe('name', () => {
       it('should return name', () => {
@@ -39,6 +42,9 @@ describe('ColumnEntityFactory', () => {
       it('should be sortable', () => {
         expect(columns[1].needSort()).toBe(true)
       })
+      it('should return null', () => {
+        expect(columns[1].getWidth()).toBe(null)
+      })
     })
     describe('phone', () => {
       it('should return phone', () => {
@@ -55,6 +61,9 @@ describe('ColumnEntityFactory', () => {
       })
       it('should be not sortable', () => {
         expect(columns[2].needSort()).toBe(false)
+      })
+      it('should return null', () => {
+        expect(columns[2].getWidth()).toBe(null)
       })
     })
   })

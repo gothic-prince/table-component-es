@@ -46,6 +46,12 @@ var ColumnHeadEntityInterface = function () {
   }, {
     key: "needSort",
     value: function needSort() {}
+  }, {
+    key: "setWidth",
+    value: function setWidth(value) {}
+  }, {
+    key: "getWidth",
+    value: function getWidth() {}
   }]);
 
   return ColumnHeadEntityInterface;
