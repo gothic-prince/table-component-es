@@ -47,6 +47,9 @@ var ColumnHeadEntityInterface = function () {
     key: "needSort",
     value: function needSort() {}
   }, {
+    key: "setNeedSort",
+    value: function setNeedSort(value) {}
+  }, {
     key: "setWidth",
     value: function setWidth(value) {}
   }, {

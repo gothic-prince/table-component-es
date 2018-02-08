@@ -10,6 +10,7 @@ export default class ColumnHeadEntityInterface {
   setActive (bool) {}
   setReverse(bool){}
   needSort(){}
+  setNeedSort(value){}
   setWidth(value) {}
   getWidth() {}
 }
