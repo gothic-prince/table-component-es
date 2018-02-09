@@ -57,10 +57,10 @@ var TableBuilderLocalStorage = function (_TableBuilder) {
 
     _this.tableName = tableName;
     _this.storage = storage;
+    _this.options = [];
     return _this;
   }
   /**
-   * @protected
    * @return {String[]}
    */
 
@@ -68,7 +68,16 @@ var TableBuilderLocalStorage = function (_TableBuilder) {
   _createClass(TableBuilderLocalStorage, [{
     key: 'getOptions',
     value: function getOptions() {
-      return [_constants2.COLUMN_STORAGE_HIDDEN];
+      return this.options;
+    }
+    /**
+     * @param option {String}
+     */
+
+  }, {
+    key: 'addOption',
+    value: function addOption(option) {
+      this.options.push(option);
     }
     /**
      * @return {ColumnEntityFactoryInterface}

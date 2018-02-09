@@ -17,13 +17,19 @@ export default class TableBuilderLocalStorage  extends TableBuilder {
     super(onRender)
     this.tableName = tableName
     this.storage = storage
+    this.options = []
   }
   /**
-   * @protected
    * @return {String[]}
    */
   getOptions () {
-    return [COLUMN_STORAGE_HIDDEN]
+    return this.options
+  }
+  /**
+   * @param option {String}
+   */
+  addOption (option) {
+    this.options.push(option)
   }
   /**
    * @return {ColumnEntityFactoryInterface}
