@@ -20,4 +20,13 @@ export default class DataSelectorManagerInterface {
    * @return {boolean}
    */
   comparison (entity1, entity2) {}
+  /**
+   * @param entities {Array}
+   */
+  all (entities) {}
+  /**
+   * @param entities {Array}
+   * @return {boolean}
+   */
+  isAllSelected (entities) {}
 }

@@ -61,4 +61,20 @@ export default class DataSelectorManager extends DataSelectorManagerInterface {
       return this.comparison(entity, entity2)
     }) !== undefined
   }
+  /**
+   * @param entities {Array}
+   */
+  all (entities) {
+    this.set(this.isAllSelected(entities) ? [] : entities)
+  }
+  /**
+   * @param entities {Array}
+   * @return {boolean}
+   */
+  isAllSelected (entities) {
+    if (entities.length === 0) {
+      return false
+    }
+    return (entities.length === this.get().length)
+  }
 }

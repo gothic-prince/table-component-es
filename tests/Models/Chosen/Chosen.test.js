@@ -1,4 +1,4 @@
-import Chosen from '../../../dist/Models/DataSelectorManager/DataSelectorManager';
+import DataSelectorManager from '../../../dist/Models/DataSelectorManager/DataSelectorManager';
 import RenderInterface from '../../../dist/Models/RenderManager/RenderManagerInterface';
 describe('DataSelectorManager', () => {
   const table = new RenderInterface()
@@ -7,9 +7,15 @@ describe('DataSelectorManager', () => {
     renderTimes++
   }
   const data = ['Paul', 'Alex', 'Ketty', 'Den', 'Jone']
-  const model = new Chosen(table)
+  /**
+   * @type {DataSelectorManagerInterface}
+   */
+  const model = new DataSelectorManager(table)
   it('should has\'nt nothing', () => {
     expect(model.get().length).toBe(0)
+  })
+  it('should return false', () => {
+    expect(model.isAllSelected(data)).toBe(false)
   })
   it('should has: Alex', () => {
     model.add(data[1])
@@ -69,5 +75,17 @@ describe('DataSelectorManager', () => {
   })
   it('should reRenderView 9 times', () => {
     expect(renderTimes).toBe(9)
+  })
+  it('should return true', () => {
+    model.all(data)
+    expect(model.isAllSelected(data)).toBe(true)
+  })
+  it('should return false', () => {
+    model.all(data)
+    expect(model.isAllSelected(data)).toBe(false)
+  })
+  it('should return true', () => {
+    model.all(data)
+    expect(model.isAllSelected(data)).toBe(true)
   })
 })

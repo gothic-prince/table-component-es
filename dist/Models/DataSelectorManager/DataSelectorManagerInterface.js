@@ -48,6 +48,21 @@ var DataSelectorManagerInterface = function () {
   }, {
     key: "comparison",
     value: function comparison(entity1, entity2) {}
+    /**
+     * @param entities {Array}
+     */
+
+  }, {
+    key: "all",
+    value: function all(entities) {}
+    /**
+     * @param entities {Array}
+     * @return {boolean}
+     */
+
+  }, {
+    key: "isAllSelected",
+    value: function isAllSelected(entities) {}
   }]);
 
   return DataSelectorManagerInterface;

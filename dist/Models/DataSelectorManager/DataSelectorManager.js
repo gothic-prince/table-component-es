@@ -106,6 +106,28 @@ var DataSelectorManager = function (_DataSelectorManagerI) {
         return _this2.comparison(entity, entity2);
       }) !== undefined;
     }
+    /**
+     * @param entities {Array}
+     */
+
+  }, {
+    key: 'all',
+    value: function all(entities) {
+      this.set(this.isAllSelected(entities) ? [] : entities);
+    }
+    /**
+     * @param entities {Array}
+     * @return {boolean}
+     */
+
+  }, {
+    key: 'isAllSelected',
+    value: function isAllSelected(entities) {
+      if (entities.length === 0) {
+        return false;
+      }
+      return entities.length === this.get().length;
+    }
   }]);
 
   return DataSelectorManager;
